@@ -140,6 +140,7 @@ const dropdowns = ref({
 
 .dropdown {
   position: absolute;
+  width: 100%;
   top: 100%;
   left: 0;
   padding: 6px;
