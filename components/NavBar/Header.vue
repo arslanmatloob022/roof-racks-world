@@ -14,7 +14,7 @@
           <a >Shop</a>
           <!-- v-show="dropdowns.shop" -->
         </li>
-        <div v-show="dropdowns.shop" class="dropdown">
+        <div  class="dropdown">
           <ShopDropDown  />
         </div>
         <li
@@ -94,7 +94,7 @@ const dropdowns = ref({
     };
 </script>
 
-<style>
+<style scoped>
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -142,18 +142,18 @@ const dropdowns = ref({
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #585858;
+  padding: 6px;
+  background-color: #ffffff;
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: 0 0 12px 1px #999;
   transition: max-height 0.5s ease, opacity 0.5s ease;
   z-index: 9999;
-
 }
 
 .dropdown ul {
   list-style: none;
   margin: 0;
-
   padding: 0;
 }
 
