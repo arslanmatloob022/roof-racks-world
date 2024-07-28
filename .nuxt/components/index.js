@@ -1,4 +1,6 @@
+export { default as CategorySlider } from '../../components/CategorySlider.vue'
 export { default as Footer } from '../../components/Footer.vue'
+export { default as MainSlider } from '../../components/MainSlider.vue'
 export { default as NuxtLogo } from '../../components/NuxtLogo.vue'
 export { default as Tutorial } from '../../components/Tutorial.vue'
 export { default as NavBarHeader } from '../../components/NavBar/Header.vue'
