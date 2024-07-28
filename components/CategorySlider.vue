@@ -1,5 +1,6 @@
 <template>
-  <div style="width: 100%; background-color: blue" id="popular-slider">
+  <div style="width: 100%; " id="category-slider">
+    <h2 class="cu-heading">Shop By Categories    </h2>
     <b-carousel :interval="0" controls indicators>
       <b-carousel-slide
         v-for="(categoryChunk, index) in chunkedCategories"
@@ -7,25 +8,24 @@
         class="pointer hidden-image"
         img-src="https://res.cloudinary.com/dpkreativ/image/upload/b_auto,c_mpad,h_480,w_1024/v1646483551/wallpapers/car.jpg"
       >
-        <div class="d-flex flex-wrap" style="gap: 30px">
+        <div class="d-flex flex-wrap justify-content-center" style="gap: 30px">
           <b-card-group deck v-for="item in categoryChunk" :key="item.model">
             <b-card
-              class="text-left"
+              class="align-items-center"
               rounded
               img-src="https://cdn.flowrix.app/85a5f8ac/uploads/2023/10/102826_598001-0640.webp"
               img-alt="Image"
               img-top
             >
-              <b-card-text class="text-left black card-title">
-                <p class="custom-black">
-                  M-SKU: <b>{{ item.model }}</b>
-                </p>
+              <b-card-text class=" black card-title">
+                <h4 class="custom-black">
+             <b>{{ item.name }}</b>
+                </h4>
                 <h5>
-                  <b>{{ item.title }}</b>
+                  <!-- <b>{{ item.title }}</b> -->
                 </h5>
                 <p class="custom-black">
-                  <b class="pr-2">{{ item.discount_price }}</b>
-                  <span class="custom-red full-price">{{ item.price }}</span>
+                  <b class="pr-2 custom-red">({{ item.items }} items)</b>
                 </p>
               </b-card-text>
             </b-card>
@@ -42,76 +42,57 @@ import { ref, defineComponent } from "vue";
 
 const categories = ref([
   {
-    url: "image_url_1",
-    model: "F2",
-    title: "F2 - Preparation / Installation / Servicing Charges Base Unit",
-    discount_price: null,
-    price: "$80.00",
+    "url": "image_url_1",
+    "name": "4WD & Camping",
+    "items": 247
   },
   {
-    url: "image_url_2",
-    model: "710600",
-    title: "Thule 710600 Flush Rail Evo Foot For Vehicles 4-Pack",
-    discount_price: "$249.95",
-    price: "$239.00",
+    "url": "image_url_2",
+    "name": "Towbars",
+    "items": 434
   },
   {
-    url: "image_url_3",
-    model: "598002",
-    title: "Thule ProRide Bike Roof Rack Black",
-    discount_price: null,
-    price: "$449.95",
+    "url": "image_url_3",
+    "name": "Bars",
+    "items": 100
   },
   {
-    url: "image_url_4",
-    model: "598001",
-    title: "Thule ProRide Roof Bike Rack Black/Aluminium",
-    discount_price: "$999.95",
-    price: "$329.00",
+    "url": "image_url_4",
+    "name": "Roof Mount",
+    "items": 19
   },
   {
-    url: "image_url_5",
-    model: "710500",
-    title: "Thule Clamp Evo Foot For Vehicles 4-Pack",
-    discount_price: "$249.95",
-    price: "$239.00",
+    "url": "image_url_5",
+    "name": "Roof Boxes",
+    "items": 43
   },
   {
-    url: "image_url_6",
-    model: "720600",
-    title: "Thule Flush Rail Edge Foot For Vehicles 4-Pack",
-    discount_price: "$949.95",
-    price: "$328.00",
+    "url": "image_url_6",
+    "name": "Kayak Racks",
+    "items": 21
   },
   {
-    url: "image_url_7",
-    model: "KIT186044",
-    title: "Kit 186044",
-    discount_price: "$116.95",
-    price: "$111.00",
+    "url": "image_url_7",
+    "name": "Keys and Locks",
+    "items": 107
   },
   {
-    url: "image_url_8",
-    model: "KIT183145",
-    title: "Kit 183145",
-    discount_price: null,
-    price: "$111.00",
+    "url": "image_url_8",
+    "name": "Surf Pads",
+    "items": 10
   },
   {
-    url: "image_url_7",
-    model: "KIT186044",
-    title: "Kit 186044",
-    discount_price: "$116.95",
-    price: "$111.00",
+    "url": "image_url_9",
+    "name": "Alloy Platforms",
+    "items": 67
   },
   {
-    url: "image_url_8",
-    model: "KIT183145",
-    title: "Kit 183145",
-    discount_price: null,
-    price: "$111.00",
-  },
-]);
+    "url": "image_url_10",
+    "name": "Spacers",
+    "items": 53
+  }
+]
+);
 
 function chunkArray(array: any[], chunkSize: number) {
   const chunks = [];
@@ -125,22 +106,29 @@ const chunkedCategories = chunkArray(categories.value, 8);
 </script>
 
 <style>
-#popular-slider .carousel-caption {
-  top: 20px;
+.cu-heading{
+    font-weight: 600;
+    color: #004f7b;
+    font-size: 50px;
+
+    padding-left: 50px;
+}
+#category-slider .carousel-caption {
+  top: 10px;
 }
 
-#popular-slider .carousel-control-next-icon {
+#category-slider .carousel-control-next-icon {
   padding: 25px; /* Adjust padding as needed */
   background-color: rgb(83, 78, 78);
   background-image: none;
   border-radius: 50px;
 }
 
-#popular-slider .carousel-control-next-icon:hover {
+#category-slider .carousel-control-next-icon:hover {
   background-color: red !important;
 }
 
-#popular-slider .carousel-control-next-icon::before {
+#category-slider .carousel-control-next-icon::before {
   content: ">"; /* Add the greater than sign */
   font-size: 40px; /* Adjust the font size as needed */
   color: white;
@@ -151,18 +139,18 @@ const chunkedCategories = chunkArray(categories.value, 8);
   transform: translate(-50%, -50%);
 }
 
-#popular-slider .carousel-control-prev-icon {
+#category-slider .carousel-control-prev-icon {
   padding: 25px; /* Adjust padding as needed */
   background-color: rgb(83, 78, 78);
   background-image: none;
   border-radius: 50px;
 }
 
-#popular-slider .carousel-control-prev-icon:hover {
+#category-slider .carousel-control-prev-icon:hover {
   background-color: red !important;
 }
 
-#popular-slider .carousel-control-prev-icon::before {
+#category-slider .carousel-control-prev-icon::before {
   content: "<"; /* Add the greater than sign */
   font-size: 40px; /* Adjust the font size as needed */
   color: white;
@@ -173,14 +161,15 @@ const chunkedCategories = chunkArray(categories.value, 8);
   transform: translate(-50%, -50%);
 }
 
-#popular-slider .carousel-inner {
+#category-slider .carousel-inner {
 }
 
-#popular-slider .carousel-item {
+#category-slider .carousel-item {
   min-height: 520px;
+  max-height: 700px;
 }
 
-#popular-slider .hidden-image > img {
+#category-slider .hidden-image > img {
   opacity: 0 !important;
 }
 </style>
@@ -208,13 +197,16 @@ const chunkedCategories = chunkArray(categories.value, 8);
 }
 .card-deck > .card {
   width: 310px;
-  background-color: rgb(240, 238, 238);
+  background-color: transparent;
+  border: none;
 }
 .card {
   border-radius: 5px;
 }
 .card > img {
-  height: 250px;
+  width: 200px;
+  box-shadow: 0 0 5px 1px rgba(0, 79, 123, 0.3215686275);
+  border-radius: 50%;
 }
 .card-title {
   color: #365072;

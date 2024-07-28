@@ -1,3 +1,4 @@
+export { default as BrandSlider } from '../../components/BrandSlider.vue'
 export { default as CategorySlider } from '../../components/CategorySlider.vue'
 export { default as Footer } from '../../components/Footer.vue'
 export { default as MainSlider } from '../../components/MainSlider.vue'
