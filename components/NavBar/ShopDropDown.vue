@@ -5,7 +5,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold">
+              <a href="#" class="text-danger font-weight-bold">
                 Roof Rack Components (Individual Parts)</a
               >
             </li>
@@ -25,7 +25,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold"
+              <a href="#" class="text-danger font-weight-bold"
                 >Towing Systems (Individual Parts)</a
               >
             </li>
@@ -43,7 +43,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold">Bike Racks</a>
+              <a href="#" class="text-danger font-weight-bold">Bike Racks</a>
             </li>
             <li><a href="#">Roof Mount</a></li>
             <li><a href="#">Towball Mount</a></li>
@@ -59,7 +59,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold">Snow</a>
+              <a href="#" class="text-danger font-weight-bold">Snow</a>
             </li>
             <li><a href="#">Ski-Snowboard Racks</a></li>
             <li><a href="#">Snow Accessories</a></li>
@@ -68,7 +68,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold"
+              <a href="#" class="text-danger font-weight-bold"
                 >Active With Children</a
               >
             </li>
@@ -84,7 +84,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold">Cargo</a>
+              <a href="#" class="text-danger font-weight-bold">Cargo</a>
             </li>
             <li><a href="#">Roof Boxes</a></li>
             <li><a href="#">Alloy Platforms</a></li>
@@ -101,7 +101,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold">Water</a>
+              <a href="#" class="text-danger font-weight-bold">Water</a>
             </li>
             <li><a href="#">Kayak Racks</a></li>
             <li><a href="#">Surf Pads</a></li>
@@ -114,7 +114,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold"
+              <a href="#" class="text-danger font-weight-bold"
                 >Active With Children</a
               >
             </li>
@@ -130,9 +130,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold"
-                >4WD & Camping</a
-              >
+              <a href="#" class="text-danger font-weight-bold">4WD & Camping</a>
             </li>
             <li><a href="#">Awnings</a></li>
             <li><a href="#">Rooftop Tents</a></li>
@@ -147,7 +145,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold"
+              <a href="#" class="text-danger font-weight-bold"
                 >Tradies & Work</a
               >
             </li>
@@ -159,7 +157,7 @@
         <div class="menu-options">
           <ul>
             <li class="master-heading">
-              <a href="#" class="text-primary font-weight-bold">Luggage</a>
+              <a href="#" class="text-danger font-weight-bold">Luggage</a>
             </li>
             <li><a href="#">Travel Luggage & Duffels</a></li>
             <li><a href="#">Backpacks</a></li>
@@ -205,8 +203,16 @@ const rows = ref(3);
   padding: 4px 24px;
 }
 
+.dropdown ul li {
+  transition: all 0.15s ease;
+}
+
 .dropdown li:not(:first-child):hover {
-  background-color: #ffffff;
+  background-color: #ff4426;
+}
+
+.dropdown li:not(:first-child):hover a {
+  color: #fff;
 }
 
 .dropdown li a {
@@ -222,9 +228,12 @@ const rows = ref(3);
 }
 
 .master-heading {
-  color: #272727;
   border-bottom: 2px solid #004f7b;
   margin-bottom: 10px;
+}
+
+.master-heading a {
+  color: #ff4426;
 }
 .master-heading:hover {
   background-color: transparent;

@@ -1,13 +1,10 @@
 <template>
-<<<<<<< HEAD
-=======
   <div>
   <!-- <Tutorial/> -->
-
   <MainSlider/>
+  <!-- <CategorySlider/> -->
 <PopularSlider/>
 </div>
->>>>>>> slider
 </template>
 
 <script lang="ts">
