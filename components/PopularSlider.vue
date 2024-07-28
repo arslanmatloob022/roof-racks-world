@@ -1,5 +1,6 @@
 <template>
-  <div style="width: 100%; background-color: blue" id="popular-slider">
+  <div style="width: 100%; " id="popular-slider">
+    <h1 class="cu-heading">Popular Products    </h1>
     <b-carousel :interval="0" controls indicators>
       <b-carousel-slide
         v-for="(categoryChunk, index) in chunkedCategories"
@@ -7,7 +8,7 @@
         class="pointer hidden-image"
         img-src="https://res.cloudinary.com/dpkreativ/image/upload/b_auto,c_mpad,h_480,w_1024/v1646483551/wallpapers/car.jpg"
       >
-        <div class="d-flex flex-wrap" style="gap: 30px">
+        <div class="d-flex flex-wrap justify-content-center" style="gap: 30px">
           <b-card-group deck v-for="item in categoryChunk" :key="item.model">
             <b-card
               class="text-left"
