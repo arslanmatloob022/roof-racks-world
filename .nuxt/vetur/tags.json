@@ -1,10 +1,17 @@
 {
+  "CategorySlider": {
+    "description": "Auto imported from components/CategorySlider.vue"
+  },
   "Footer": {
     "description": "Auto imported from components/Footer.vue"
+  },
+  "MainSlider": {
+    "description": "Auto imported from components/MainSlider.vue"
   },
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
   },
+
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
   },
