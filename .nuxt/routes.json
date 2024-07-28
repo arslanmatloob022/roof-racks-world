@@ -2,7 +2,8 @@
   {
     "name": "index",
     "path": "/",
-    "component": "D:\\\\Work\\\\Project With Web Tech Workers\\\\roof-racks-world\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "/home/webtech/roof-racks-world/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_609c2fb4"
   }
 ]
