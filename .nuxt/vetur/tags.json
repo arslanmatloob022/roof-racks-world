@@ -1,6 +1,12 @@
 {
+  "CategorySlider": {
+    "description": "Auto imported from components/CategorySlider.vue"
+  },
   "Footer": {
     "description": "Auto imported from components/Footer.vue"
+  },
+  "MainSlider": {
+    "description": "Auto imported from components/MainSlider.vue"
   },
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
@@ -11,7 +17,13 @@
   "NavBarHeader": {
     "description": "Auto imported from components/NavBar/Header.vue"
   },
+  "NavBarInStoreDropDown": {
+    "description": "Auto imported from components/NavBar/InStoreDropDown.vue"
+  },
   "NavBarShopDropDown": {
     "description": "Auto imported from components/NavBar/ShopDropDown.vue"
+  },
+  "NavBarStoreDropDown": {
+    "description": "Auto imported from components/NavBar/StoreDropDown.vue"
   }
 }

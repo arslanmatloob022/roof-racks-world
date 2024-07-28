@@ -13,21 +13,17 @@
         >
           <a >Shop</a>
           <!-- v-show="dropdowns.shop" -->
+          <div v-show="dropdowns.shop" class="dropdown">
+            <ShopDropDown   />
+          </div>
         </li>
-        <div v-show="dropdowns.shop" class="dropdown">
-          <ShopDropDown  />
-        </div>
         <li
           @mouseover="openDropdown('inStoreServices')"
           @mouseleave="closeDropdown('inStoreServices')"
         >
-          <a href="#">In-Store Services</a>
+          <a>In-Store Services</a>
           <div class="dropdown" v-show="dropdowns.inStoreServices">
-            <ul>
-              <li><a href="#">In-Store Services Link 1</a></li>
-              <li><a href="#">In-Store Services Link 2</a></li>
-              <li><a href="#">In-Store Services Link 3</a></li>
-            </ul>
+            <InStoreDropDown />
           </div>
         </li>
         <li
@@ -48,11 +44,7 @@
         >
           <a href="#">Stores</a>
           <div class="dropdown" v-show="dropdowns.stores">
-            <ul>
-              <li><a href="#">Stores Link 1</a></li>
-              <li><a href="#">Stores Link 2</a></li>
-              <li><a href="#">Stores Link 3</a></li>
-            </ul>
+            <StoreDropDown />
           </div>
         </li>
         <li
@@ -75,6 +67,9 @@
 <script setup lang="ts">
 import { ref, defineComponent } from 'vue';
 import ShopDropDown from "@/components/NavBar/ShopDropDown.vue";
+import InStoreDropDown from "@/components/NavBar/InStoreDropDown.vue";
+import StoreDropDown from "@/components/NavBar/StoreDropDown.vue";
+
 const dropdowns = ref({
       shop: false,
       inStoreServices: false,
@@ -94,14 +89,15 @@ const dropdowns = ref({
     };
 </script>
 
-<style>
+<style scoped>
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #333;
+  background-color: #FF4426;
   color: #fff;
+  position: relative;
   
 }
 
@@ -121,7 +117,7 @@ const dropdowns = ref({
 }
 
 .navbar-links li {
-  position: relative;
+  /* position: relative; */
   margin: 0 1rem;
 }
 
@@ -135,25 +131,30 @@ const dropdowns = ref({
 }
 
 .navbar-links a:hover {
-  background-color: #555;
+  background-color: #e7e7e7;
+  color: #FF4426;
 }
 
 .dropdown {
   position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #585858;
+  left: 0; /* Align to the left edge */
+  right: 0; /* Align to the right edge */
+  top: 57px; /* Place it below the element */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  padding: 6px;
+  background-color: #ffffff;
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: 0 0 12px 1px #999;
   transition: max-height 0.5s ease, opacity 0.5s ease;
   z-index: 9999;
-
 }
+
 
 .dropdown ul {
   list-style: none;
   margin: 0;
-
   padding: 0;
 }
 

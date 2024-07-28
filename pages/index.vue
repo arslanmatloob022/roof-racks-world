@@ -1,5 +1,10 @@
 <template>
-  <Tutorial/>
+  <div>
+  <!-- <Tutorial/> -->
+
+  <MainSlider/>
+<CategorySlider/>
+</div>
 </template>
 
 <script lang="ts">
