@@ -14,6 +14,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 import nuxt_plugin_plugin_03172835 from 'nuxt_plugin_plugin_03172835' // Source: ./components/plugin.js (mode: 'all')
 import nuxt_plugin_bootstrapvue_f791c40c from 'nuxt_plugin_bootstrapvue_f791c40c' // Source: ./bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_fontawesome_0e6789cd from 'nuxt_plugin_fontawesome_0e6789cd' // Source: ./fontawesome.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -64,7 +65,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"roof-rack-world","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"roof-rack-world","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"script":[{"src":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fpopper.js\u002F2.11.6\u002Fumd\u002Fpopper.min.js","integrity":"sha384-oBqDVmMz4fnFO9gyb9Gab4eVVF7LXStKFEblIJvp3ctzGxrK\u002F2E65S0YeeB9I\u002FYL","crossorigin":"anonymous"},{"src":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Fbootstrap\u002F5.2.0\u002Fjs\u002Fbootstrap.min.js","integrity":"sha384-cn7l7gDp0eyqIWI6E6l2+S6p\u002F4H1cpo5F6F4B68R1I0U62uzYZ3KvB80f96u3o16","crossorigin":"anonymous"}],"style":[]},
 
     router,
     nuxt: {
@@ -187,6 +188,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_bootstrapvue_f791c40c === 'function') {
     await nuxt_plugin_bootstrapvue_f791c40c(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_fontawesome_0e6789cd === 'function') {
+    await nuxt_plugin_fontawesome_0e6789cd(app.context, inject)
   }
 
   // Lock enablePreview in context

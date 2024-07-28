@@ -11,8 +11,17 @@
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
   },
+  "PopularSlider": {
+    "description": "Auto imported from components/PopularSlider.vue"
+  },
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
+  },
+  "VisitingSection": {
+    "description": "Auto imported from components/VisitingSection.vue"
+  },
+  "NavBarContactNavBar": {
+    "description": "Auto imported from components/NavBar/ContactNavBar.vue"
   },
   "NavBarHeader": {
     "description": "Auto imported from components/NavBar/Header.vue"

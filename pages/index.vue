@@ -1,16 +1,14 @@
 <template>
   <div>
-  <!-- <Tutorial/> -->
-
-  <MainSlider/>
-<CategorySlider/>
-</div>
+    <!-- <Tutorial/> -->
+    <MainSlider />
+    <!-- <CategorySlider/> -->
+    <PopularSlider />
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 
-export default Vue.extend({
-  name: 'IndexPage'
-})
+export default Vue.extend({});
 </script>
