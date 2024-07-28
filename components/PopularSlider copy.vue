@@ -10,7 +10,6 @@
                     <b-card-group deck v-for="item in categoryChunk" :key="item.model">
                         <b-card
                             class="text-left"
-                            
                             rounded
                             img-src="https://cdn.flowrix.app/85a5f8ac/uploads/2023/10/102826_598001-0640.webp"
                             img-alt="Image"
@@ -31,10 +30,9 @@
     </div>
 </template>
 
-
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css'
-import { ref, defineComponent } from "vue";
+import { ref } from "vue";
 
 const categories = ref([
   {
