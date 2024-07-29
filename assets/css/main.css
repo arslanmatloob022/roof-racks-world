@@ -1,0 +1,11 @@
+/* assets/css/main.css */
+
+/* Define your global styles here */
+.global-class {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Add any other global styles you need */

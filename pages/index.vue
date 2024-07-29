@@ -2,9 +2,9 @@
   <div>
     <!-- <Tutorial/> -->
     <MainSlider />
-    <CategorySlider/>
+    <CategorySlider />
 
-    <BrandSlider/>
+    <BrandSlider />
     <PopularSlider />
   </div>
 </template>

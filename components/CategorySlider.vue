@@ -1,6 +1,6 @@
 <template>
-  <div style="width: 100%; " id="category-slider">
-    <h2 class="cu-heading">Shop By Categories    </h2>
+  <div style="width: 100%" id="category-slider">
+    <h2 class="cu-heading">Shop By Categories</h2>
     <b-carousel :interval="0" controls indicators>
       <b-carousel-slide
         v-for="(categoryChunk, index) in chunkedCategories"
@@ -11,15 +11,18 @@
         <div class="d-flex flex-wrap justify-content-center" style="gap: 30px">
           <b-card-group deck v-for="item in categoryChunk" :key="item.model">
             <b-card
-              class="align-items-center"
+              class="align-items-center hover-effect"
               rounded
               img-src="https://cdn.flowrix.app/85a5f8ac/uploads/2023/10/102826_598001-0640.webp"
               img-alt="Image"
               img-top
             >
-              <b-card-text class=" black card-title">
+              <div class="overlay">
+                <fa :icon="['fas', 'arrow-right']" class="next-icon" />
+              </div>
+              <b-card-text class="black card-title">
                 <h4 class="custom-black">
-             <b>{{ item.name }}</b>
+                  <b>{{ item.name }}</b>
                 </h4>
                 <h5>
                   <!-- <b>{{ item.title }}</b> -->
@@ -38,61 +41,80 @@
 
 <script setup lang="ts">
 import "vue3-carousel/dist/carousel.css";
-import { ref, defineComponent } from "vue";
+import { ref } from "vue";
 
 const categories = ref([
   {
-    "url": "image_url_1",
-    "name": "4WD & Camping",
-    "items": 247
+    url: "image_url_1",
+    name: "4WD & Camping",
+    items: 247,
   },
   {
-    "url": "image_url_2",
-    "name": "Towbars",
-    "items": 434
+    url: "image_url_2",
+    name: "Towbars",
+    items: 434,
   },
   {
-    "url": "image_url_3",
-    "name": "Bars",
-    "items": 100
+    url: "image_url_3",
+    name: "Bars",
+    items: 100,
   },
   {
-    "url": "image_url_4",
-    "name": "Roof Mount",
-    "items": 19
+    url: "image_url_4",
+    name: "Roof Mount",
+    items: 19,
   },
   {
-    "url": "image_url_5",
-    "name": "Roof Boxes",
-    "items": 43
+    url: "image_url_5",
+    name: "Roof Boxes",
+    items: 4123,
   },
   {
-    "url": "image_url_6",
-    "name": "Kayak Racks",
-    "items": 21
+    url: "image_url_6",
+    name: "Kayak Racks",
+    items: 2145,
   },
   {
-    "url": "image_url_7",
-    "name": "Keys and Locks",
-    "items": 107
+    url: "image_url_7",
+    name: "Keys and Locks",
+    items: 107,
   },
   {
-    "url": "image_url_8",
-    "name": "Surf Pads",
-    "items": 10
+    url: "image_url_8",
+    name: "Surf Pads",
+    items: 1035,
   },
   {
-    "url": "image_url_9",
-    "name": "Alloy Platforms",
-    "items": 67
+    url: "image_url_9",
+    name: "Alloy Platforms",
+    items: 679,
   },
   {
-    "url": "image_url_10",
-    "name": "Spacers",
-    "items": 53
-  }
-]
-);
+    url: "image_url_10",
+    name: "Spacers",
+    items: 537,
+  },
+  {
+    url: "image_url_1",
+    name: "4WD & Camping",
+    items: 227,
+  },
+  {
+    url: "image_url_2",
+    name: "Towbars",
+    items: 414,
+  },
+  {
+    url: "image_url_3",
+    name: "Bars",
+    items: 1509,
+  },
+  {
+    url: "image_url_4",
+    name: "Roof Mount",
+    items: 1986,
+  },
+]);
 
 function chunkArray(array: any[], chunkSize: number) {
   const chunks = [];
@@ -106,13 +128,13 @@ const chunkedCategories = chunkArray(categories.value, 8);
 </script>
 
 <style>
-.cu-heading{
-    font-weight: 600;
-    color: #004f7b;
-    font-size: 50px;
-
-    padding-left: 50px;
+.cu-heading {
+  font-weight: 600;
+  color: #004f7b;
+  font-size: 50px;
+  padding-left: 50px;
 }
+
 #category-slider .carousel-caption {
   top: 10px;
 }
@@ -196,12 +218,14 @@ const chunkedCategories = chunkArray(categories.value, 8);
   text-decoration: line-through;
 }
 .card-deck > .card {
-  width: 310px;
+  width: 210px;
   background-color: transparent;
   border: none;
 }
 .card {
   border-radius: 5px;
+  position: relative;
+  overflow: hidden;
 }
 .card > img {
   width: 200px;
@@ -218,6 +242,40 @@ const chunkedCategories = chunkArray(categories.value, 8);
   width: 300px;
   height: 300px;
   border-radius: 40px;
+}
+
+.hover-effect .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64%;
+  height: 64%;
+  transform: translate(28%, 0%);
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.hover-effect:hover .overlay {
+  opacity: 1;
+}
+
+.next-icon {
+  color: white;
+  font-size: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.next-icon:hover {
+  background-color: #ff2400;
+  cursor: pointer;
 }
 
 .prev,

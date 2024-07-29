@@ -241,17 +241,16 @@ const toggleMenu = () => {
 
 .navbar-actions .menu-icon {
   display: none;
-  background: #555;
   border: none;
   cursor: pointer;
+  background-color: none;
   width: 30px;
   height: 30px;
-  color: #fff;
 }
 
 .navbar-actions .menu-icon i {
   color: #ffffff;
-  z-index: 9999;
+  z-index: 9;
   font-size: large;
 }
 

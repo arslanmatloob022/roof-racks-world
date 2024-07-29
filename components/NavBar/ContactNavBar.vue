@@ -1,6 +1,13 @@
 <template>
   <nav class="navbar">
-    <div class="navbar-logo"></div>
+    <div class="navbar-mobile-logo hide-on-mobile">
+      <img
+        v-if="showContactNavBar"
+        class="w-100"
+        src="@/images/mobile-logo.png"
+        alt="Roof Rack and Towbar World"
+      />
+    </div>
 
     <div class="navbar-links" :class="{ active: menuActive }">
       <input type="text" placeholder="Search..." />
@@ -8,26 +15,20 @@
     <div class="navbar-actions">
       <div class="profile-icon">
         <img src="@/images/woman-7531315_640.png" alt="" />
-        <div class="text hide-on-mobile">
-          <p><span> Login </span></p>
+        <div class="text mt-2 hide-on-mobile">
+          <p>Account</p>
         </div>
       </div>
       <div class="profile-icon mr-4">
-        <img class="mt-2" src="@/images/cart-64.png" alt="" />
+        <img class="mt-0" src="@/images/cart-64.png" alt="" />
         <div class="text mt-2 hide-on-mobile">
-          <p>
-            Shopping Cart <br />
-            <span>$0.00</span>
-          </p>
+          <p>Cart ($ 0.00)</p>
         </div>
       </div>
       <div class="profile-icon mr-4">
-        <img class="mt-2" src="@/images/call-50.png" alt="" />
+        <img class="mt-0" src="@/images/call-50.png" alt="" />
         <div class="text mt-2 hide-on-mobile">
-          <p>
-            Call Us <br />
-            <span>+123 45679 128</span>
-          </p>
+          <p>+123 45679 128</p>
         </div>
       </div>
 
@@ -40,7 +41,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { defineComponent, ref, onMounted, onBeforeUnmount } from "vue";
+
+const menuActive = ref(false);
+const showContactNavBar = ref(false);
+const showHeader = ref(true);
 
 const dropdowns = ref({
   shop: false,
@@ -51,19 +56,23 @@ const dropdowns = ref({
   contact: false,
 });
 
-const menuActive = ref(false);
-
-const openDropdown = (key: string) => {
-  dropdowns.value[key] = true;
-};
-
-const closeDropdown = (key: string) => {
-  dropdowns.value[key] = false;
+const handleScroll = () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  showContactNavBar.value = scrollTop >= 100; // Show ContactNavBar after scrolling down 100px
+  showHeader.value = scrollTop >= 0; // Show Header only at the top of the page
 };
 
 const toggleMenu = () => {
   menuActive.value = !menuActive.value;
 };
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <style scoped>
@@ -84,9 +93,9 @@ const toggleMenu = () => {
   margin-right: 60px;
 }
 .navbar-mobile-logo img {
-  display: none;
-  height: 34px;
-  width: 34px;
+  /* display: none; */
+  height: 38px;
+  width: 38px;
   border-radius: 50%;
 }
 
@@ -185,8 +194,8 @@ const toggleMenu = () => {
 }
 
 .navbar-actions .profile-icon img {
-  height: 36px;
-  width: 36px;
+  height: 34px;
+  width: 34px;
   border-radius: 4px;
 }
 
@@ -266,6 +275,7 @@ const toggleMenu = () => {
     flex-direction: column;
     text-align: center;
   }
+
   .dropdown {
     position: absolute;
     left: 0;
@@ -289,6 +299,9 @@ const toggleMenu = () => {
   .navbar-links.active {
     display: flex;
   }
+  .navbar-actions {
+    margin-left: 14%;
+  }
 
   .navbar-actions .menu-icon {
     display: block;
@@ -300,7 +313,7 @@ const toggleMenu = () => {
   .navbar-actions .profile-icon img {
     height: 34px;
     width: 34px;
-    border-radius: 50%;
+    border-radius: 8px;
   }
   .navbar-logo img {
     display: none;
