@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%" id="category-slider">
-    <h2 class="cu-heading">Shop By Categories</h2>
+    <h2 class="cu-heading p-5">Shop By Categories</h2>
     <b-carousel :interval="0" controls indicators>
       <b-carousel-slide
         v-for="(categoryChunk, index) in chunkedCategories"
@@ -152,7 +152,7 @@ const chunkedCategories = chunkArray(categories.value, 8);
 
 #category-slider .carousel-control-next-icon::before {
   content: ">"; /* Add the greater than sign */
-  font-size: 40px; /* Adjust the font size as needed */
+  font-size: 20px; /* Adjust the font size as needed */
   color: white;
   font-weight: bolder;
   position: absolute;
@@ -174,7 +174,7 @@ const chunkedCategories = chunkArray(categories.value, 8);
 
 #category-slider .carousel-control-prev-icon::before {
   content: "<"; /* Add the greater than sign */
-  font-size: 40px; /* Adjust the font size as needed */
+  font-size: 20px; /* Adjust the font size as needed */
   color: white;
   font-weight: bolder;
   position: absolute;
@@ -342,7 +342,7 @@ const chunkedCategories = chunkArray(categories.value, 8);
 }
 
 .slides {
-  font-size: 40px;
+  font-size: 20px;
   display: flex;
   height: 100%;
   align-items: center;
