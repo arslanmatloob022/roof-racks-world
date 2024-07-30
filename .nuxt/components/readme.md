@@ -8,6 +8,7 @@ You can directly use them in pages and other components without the need to impo
 
 - `<BrandSlider>` | `<brand-slider>` (components/BrandSlider.vue)
 - `<CategorySlider>` | `<category-slider>` (components/CategorySlider.vue)
+- `<ContactForm>` | `<contact-form>` (components/ContactForm.vue)
 - `<Footer>` | `<footer>` (components/Footer.vue)
 - `<MainSlider>` | `<main-slider>` (components/MainSlider.vue)
 - `<NuxtLogo>` | `<nuxt-logo>` (components/NuxtLogo.vue)

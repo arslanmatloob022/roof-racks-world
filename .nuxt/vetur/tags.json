@@ -5,6 +5,9 @@
   "CategorySlider": {
     "description": "Auto imported from components/CategorySlider.vue"
   },
+  "ContactForm": {
+    "description": "Auto imported from components/ContactForm.vue"
+  },
   "Footer": {
     "description": "Auto imported from components/Footer.vue"
   },

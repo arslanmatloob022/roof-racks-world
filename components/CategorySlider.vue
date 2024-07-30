@@ -95,24 +95,44 @@ const categories = ref([
     items: 537,
   },
   {
-    url: "image_url_1",
+    url: "image_url_11",
     name: "4WD & Camping",
     items: 227,
   },
   {
-    url: "image_url_2",
+    url: "image_url_12",
     name: "Towbars",
     items: 414,
   },
   {
-    url: "image_url_3",
+    url: "image_url_13",
     name: "Bars",
     items: 1509,
   },
   {
-    url: "image_url_4",
+    url: "image_url_14",
     name: "Roof Mount",
     items: 1986,
+  },
+  {
+    url: "image_url_15",
+    name: "Keys and Locks",
+    items: 10227,
+  },
+  {
+    url: "image_url_16",
+    name: "Surf Pads",
+    items: 10335,
+  },
+  {
+    url: "image_url_17",
+    name: "Alloy Platforms",
+    items: 67339,
+  },
+  {
+    url: "image_url_18",
+    name: "Spacers",
+    items: 532137,
   },
 ]);
 
@@ -124,7 +144,7 @@ function chunkArray(array: any[], chunkSize: number) {
   return chunks;
 }
 
-const chunkedCategories = chunkArray(categories.value, 8);
+const chunkedCategories = chunkArray(categories.value, 12);
 </script>
 
 <style>
@@ -248,10 +268,10 @@ const chunkedCategories = chunkArray(categories.value, 8);
   position: absolute;
   top: 0;
   left: 0;
-  width: 64%;
-  height: 64%;
-  transform: translate(28%, 0%);
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 94%;
+  height: 60%;
+  transform: translate(2%, 0%);
+  background-color: transparent;
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
