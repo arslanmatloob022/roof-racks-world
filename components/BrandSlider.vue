@@ -5,7 +5,7 @@
       style="width: 100%; background-color: rgb(246, 247, 248)"
       id="brand-slider"
     >
-      <b-carousel :interval="50" controls indicators>
+      <b-carousel :interval="500" controls indicators>
         <b-carousel-slide
           v-for="(categoryChunk, index) in chunkedCategories"
           :key="index"
@@ -19,7 +19,7 @@
             <div deck v-for="item in categoryChunk" :key="item.model">
               <div
                 class="d-flex flex-column align-items-center"
-                style="gap: 10px"
+                style="gap: 20px; cursor: pointer;"
               >
                 <div class="image-bg" style="width: 300px">
                   <img :src="item.url" alt="" />
@@ -40,55 +40,88 @@ import { ref, defineComponent } from "vue";
 
 const categories = ref([
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/yakima.png",
     name: "4WD & Camping",
     items: 247,
   },
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
+    url: "	https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/rhino-rack.png",
     name: "Towbars",
     items: 434,
   },
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/rola.png",
     name: "Bars",
     items: 100,
   },
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/12/autosafe.jpg",
     name: "Roof Mount",
     items: 19,
   },
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/erich-jaeder.png",
     name: "Roof Boxes",
     items: 43,
   },
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/proseries.png",
     name: "Kayak Racks",
     items: 21,
   },
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/redarc.png",
     name: "Keys and Locks",
     items: 107,
   },
+
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
-    name: "Surf Pads",
-    items: 10,
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/yakima.png",
+    name: "4WD & Camping",
+    items: 247,
   },
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
-    name: "Alloy Platforms",
-    items: 67,
+    url: "	https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/rhino-rack.png",
+    name: "Towbars",
+    items: 434,
   },
   {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/thule.png",
-    name: "Spacers",
-    items: 53,
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/rola.png",
+    name: "Bars",
+    items: 100,
   },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/12/autosafe.jpg",
+    name: "Roof Mount",
+    items: 19,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/erich-jaeder.png",
+    name: "Roof Boxes",
+    items: 43,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/proseries.png",
+    name: "Kayak Racks",
+    items: 21,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/redarc.png",
+    name: "Keys and Locks",
+    items: 107,
+  },
+
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/proseries.png",
+    name: "Kayak Racks",
+    items: 21,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/12/autosafe.jpg",
+    name: "Roof Mount",
+    items: 19,
+  },
+  
 ]);
 
 function chunkArray(array: any[], chunkSize: number) {
@@ -122,6 +155,12 @@ const chunkedCategories = chunkArray(categories.value, 8);
   color: #004f7b;
   font-size: 50px;
   padding-left: 50px;
+}
+
+@media (max-width: 760px) {
+  .cu-heading {
+    font-size: 30.5px !important; /* Reduce font size by 25% if screen width is less than 760px */
+  }
 }
 
 #brand-slider .carousel-caption {

@@ -8,12 +8,12 @@
         class="pointer hidden-image"
         img-src="https://res.cloudinary.com/dpkreativ/image/upload/b_auto,c_mpad,h_480,w_1024/v1646483551/wallpapers/car.jpg"
       >
-        <div class="d-flex flex-wrap justify-content-center" style="gap: 30px">
+        <div class="d-flex flex-wrap justify-content-center" style="gap: 5%">
           <b-card-group deck v-for="item in categoryChunk" :key="item.model">
             <b-card
               class="align-items-center hover-effect"
               rounded
-              img-src="https://cdn.flowrix.app/85a5f8ac/uploads/2023/10/102826_598001-0640.webp"
+              :img-src="item.url"
               img-alt="Image"
               img-top
             >
@@ -45,75 +45,115 @@ import { ref } from "vue";
 
 const categories = ref([
   {
-    url: "image_url_1",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/07/122217_0818d250-00fa-4b25-9994-7137405c4098.webp",
     name: "4WD & Camping",
     items: 247,
   },
   {
-    url: "image_url_2",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/camping.jpg",
     name: "Towbars",
     items: 434,
   },
   {
-    url: "image_url_3",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/s-l1600.jpg",
     name: "Bars",
     items: 100,
   },
   {
-    url: "image_url_4",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/207572.webp",
     name: "Roof Mount",
     items: 19,
   },
   {
-    url: "image_url_5",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/10/roof-rack-thule-lock-barrel-core-and-key.webp",
     name: "Roof Boxes",
     items: 4123,
   },
   {
-    url: "image_url_6",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/52100-00.webp",
     name: "Kayak Racks",
     items: 2145,
   },
   {
-    url: "image_url_7",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/12/555494.webp",
     name: "Keys and Locks",
     items: 107,
   },
+
   {
-    url: "image_url_8",
-    name: "Surf Pads",
-    items: 1035,
-  },
-  {
-    url: "image_url_9",
-    name: "Alloy Platforms",
-    items: 679,
-  },
-  {
-    url: "image_url_10",
-    name: "Spacers",
-    items: 537,
-  },
-  {
-    url: "image_url_1",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/07/122217_0818d250-00fa-4b25-9994-7137405c4098.webp",
     name: "4WD & Camping",
-    items: 227,
+    items: 247,
   },
   {
-    url: "image_url_2",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/camping.jpg",
     name: "Towbars",
-    items: 414,
+    items: 434,
   },
   {
-    url: "image_url_3",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/s-l1600.jpg",
     name: "Bars",
-    items: 1509,
+    items: 100,
   },
   {
-    url: "image_url_4",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/207572.webp",
     name: "Roof Mount",
-    items: 1986,
+    items: 19,
   },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/10/roof-rack-thule-lock-barrel-core-and-key.webp",
+    name: "Roof Boxes",
+    items: 4123,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/52100-00.webp",
+    name: "Kayak Racks",
+    items: 2145,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/12/555494.webp",
+    name: "Keys and Locks",
+    items: 107,
+  },
+
+
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/07/122217_0818d250-00fa-4b25-9994-7137405c4098.webp",
+    name: "4WD & Camping",
+    items: 247,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/camping.jpg",
+    name: "Towbars",
+    items: 434,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/s-l1600.jpg",
+    name: "Bars",
+    items: 100,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/207572.webp",
+    name: "Roof Mount",
+    items: 19,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/10/roof-rack-thule-lock-barrel-core-and-key.webp",
+    name: "Roof Boxes",
+    items: 4123,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/52100-00.webp",
+    name: "Kayak Racks",
+    items: 2145,
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/12/555494.webp",
+    name: "Keys and Locks",
+    items: 107,
+  },
+ 
+ 
 ]);
 
 function chunkArray(array: any[], chunkSize: number) {
@@ -124,7 +164,7 @@ function chunkArray(array: any[], chunkSize: number) {
   return chunks;
 }
 
-const chunkedCategories = chunkArray(categories.value, 8);
+const chunkedCategories = chunkArray(categories.value, 10);
 </script>
 
 <style>
@@ -137,6 +177,11 @@ const chunkedCategories = chunkArray(categories.value, 8);
 
 #category-slider .carousel-caption {
   top: 10px;
+}
+
+#category-slider .carousel-caption{
+  left: 10%;
+  right: 10%;
 }
 
 #category-slider .carousel-control-next-icon {
@@ -229,6 +274,7 @@ const chunkedCategories = chunkArray(categories.value, 8);
 }
 .card > img {
   width: 200px;
+  height: 200px;
   box-shadow: 0 0 5px 1px rgba(0, 79, 123, 0.3215686275);
   border-radius: 50%;
 }

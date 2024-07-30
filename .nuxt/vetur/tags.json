@@ -29,6 +29,9 @@
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
   },
+  "VisitStore": {
+    "description": "Auto imported from components/VisitStore.vue"
+  },
   "VisitingSection": {
     "description": "Auto imported from components/VisitingSection.vue"
   },
