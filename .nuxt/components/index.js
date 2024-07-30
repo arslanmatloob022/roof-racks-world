@@ -14,6 +14,7 @@ export { default as NavBarHeader } from '../../components/NavBar/Header.vue'
 export { default as NavBarInStoreDropDown } from '../../components/NavBar/InStoreDropDown.vue'
 export { default as NavBarShopDropDown } from '../../components/NavBar/ShopDropDown.vue'
 export { default as NavBarStoreDropDown } from '../../components/NavBar/StoreDropDown.vue'
+export { default as UtlitiesSearchbar } from '../../components/utlities/Searchbar.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

@@ -1,23 +1,46 @@
 <template>
   <div style="width: 100%; " id="popular-slider">
-    <h1 class="cu-heading">Popular Products    </h1>
+    <h1 class="cu-heading">Popular Products </h1>
     <b-carousel :interval="0" controls indicators>
-      <b-carousel-slide
-        v-for="(categoryChunk, index) in chunkedCategories"
-        :key="index"
-        class="pointer hidden-image"
-        img-src="https://res.cloudinary.com/dpkreativ/image/upload/b_auto,c_mpad,h_480,w_1024/v1646483551/wallpapers/car.jpg"
-      >
+      <b-carousel-slide v-for="(categoryChunk, index) in chunkedCategories" :key="index" class="pointer hidden-image"
+        img-src="https://res.cloudinary.com/dpkreativ/image/upload/b_auto,c_mpad,h_480,w_1024/v1646483551/wallpapers/car.jpg">
         <div class="d-flex flex-wrap justify-content-center" style="gap: 30px">
           <b-card-group deck v-for="item in categoryChunk" :key="item.model">
-            <b-card
-              class="text-left"
-              rounded
-              img-src="https://cdn.flowrix.app/85a5f8ac/uploads/2023/10/102826_598001-0640.webp"
-              img-alt="Image"
-              img-top
-            >
-              <b-card-text class="text-left black card-title">
+            <!--  -->
+            <b-card class="text-left" rounded>
+              <div style="position: relative;" class="hover-effect">
+                <img :src="item.url" style="width: 100%; height: 270px;" alt="">
+                <div class="overlay">
+
+                  <div class="d-flex flex-column" style="gap: 10px; width: 90%;">
+                    <div class="d-flex align-items-center cart-badge" >
+                      <p  class="mb-0 p-2 pl-3 pr-3 icon-bage" >
+                        <fa :icon="['fas', 'arrow-right']" class="next-icon" />
+                      
+                      </p>
+                      <h6 style="font-weight: 600;" class="pl-2 pr-2 mb-0">ADD TO CART</h6>
+                    </div>
+
+                    <div class="d-flex align-items-center cart-badge" >
+                      <p  class="mb-0 p-2  pl-3 pr-3 icon-bage">
+                        <fa :icon="['fas', 'arrow-right']" class="next-icon" />
+
+                      </p>
+                      <h6 style="font-weight: 600;" class="pl-2 pr-2 mb-0">QUICK VIEW</h6>
+                    </div>
+
+                    <div class="d-flex align-items-center cart-badge" >
+                      <p  class="mb-0 p-2 pl-3 pr-3  icon-bage">
+                        <fa :icon="['fas', 'arrow-right']" class="next-icon" />
+
+                      </p>
+                      <h6 style="font-weight: 600;" class="pl-2 pr-2 mb-0">COMPARE</h6>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <b-card-text class="text-left black card-title pl-3 pr-3 pt-3">
                 <p class="custom-black">
                   M-SKU: <b>{{ item.model }}</b>
                 </p>
@@ -43,75 +66,119 @@ import { ref } from "vue";
 
 const categories = ref([
   {
-    url: "image_url_1",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/691453.webp",
     model: "F2",
     title: "F2 - Preparation / Installation / Servicing Charges Base Unit",
     discount_price: null,
     price: "$80.00",
   },
   {
-    url: "image_url_2",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/082343_696928(1).webp",
     model: "710600",
     title: "Thule 710600 Flush Rail Evo Foot For Vehicles 4-Pack",
     discount_price: "$249.95",
     price: "$239.00",
   },
   {
-    url: "image_url_3",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/081339_510917(1).webp",
     model: "598002",
     title: "Thule ProRide Bike Roof Rack Black",
     discount_price: null,
     price: "$449.95",
   },
   {
-    url: "image_url_4",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/691453.webp",
+    model: "598001",
+    title: "Thule ProRide Roof Bike Rack Black/Aluminium",
+    discount_price: "$999.95",
+    price: "$329.00",
+  },
+
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/691453.webp",
+    model: "F2",
+    title: "F2 - Preparation / Installation / Servicing Charges Base Unit",
+    discount_price: null,
+    price: "$80.00",
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/082343_696928(1).webp",
+    model: "710600",
+    title: "Thule 710600 Flush Rail Evo Foot For Vehicles 4-Pack",
+    discount_price: "$249.95",
+    price: "$239.00",
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/081339_510917(1).webp",
+    model: "598002",
+    title: "Thule ProRide Bike Roof Rack Black",
+    discount_price: null,
+    price: "$449.95",
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/691453.webp",
     model: "598001",
     title: "Thule ProRide Roof Bike Rack Black/Aluminium",
     discount_price: "$999.95",
     price: "$329.00",
   },
   {
-    url: "image_url_5",
-    model: "710500",
-    title: "Thule Clamp Evo Foot For Vehicles 4-Pack",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/691453.webp",
+    model: "F2",
+    title: "F2 - Preparation / Installation / Servicing Charges Base Unit",
+    discount_price: null,
+    price: "$80.00",
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/082343_696928(1).webp",
+    model: "710600",
+    title: "Thule 710600 Flush Rail Evo Foot For Vehicles 4-Pack",
     discount_price: "$249.95",
     price: "$239.00",
   },
   {
-    url: "image_url_6",
-    model: "720600",
-    title: "Thule Flush Rail Edge Foot For Vehicles 4-Pack",
-    discount_price: "$949.95",
-    price: "$328.00",
-  },
-  {
-    url: "image_url_7",
-    model: "KIT186044",
-    title: "Kit 186044",
-    discount_price: "$116.95",
-    price: "$111.00",
-  },
-  {
-    url: "image_url_8",
-    model: "KIT183145",
-    title: "Kit 183145",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/081339_510917(1).webp",
+    model: "598002",
+    title: "Thule ProRide Bike Roof Rack Black",
     discount_price: null,
-    price: "$111.00",
+    price: "$449.95",
   },
   {
-    url: "image_url_7",
-    model: "KIT186044",
-    title: "Kit 186044",
-    discount_price: "$116.95",
-    price: "$111.00",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/691453.webp",
+    model: "598001",
+    title: "Thule ProRide Roof Bike Rack Black/Aluminium",
+    discount_price: "$999.95",
+    price: "$329.00",
   },
   {
-    url: "image_url_8",
-    model: "KIT183145",
-    title: "Kit 183145",
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/691453.webp",
+    model: "F2",
+    title: "F2 - Preparation / Installation / Servicing Charges Base Unit",
     discount_price: null,
-    price: "$111.00",
+    price: "$80.00",
   },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/082343_696928(1).webp",
+    model: "710600",
+    title: "Thule 710600 Flush Rail Evo Foot For Vehicles 4-Pack",
+    discount_price: "$249.95",
+    price: "$239.00",
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/081339_510917(1).webp",
+    model: "598002",
+    title: "Thule ProRide Bike Roof Rack Black",
+    discount_price: null,
+    price: "$449.95",
+  },
+  {
+    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/691453.webp",
+    model: "598001",
+    title: "Thule ProRide Roof Bike Rack Black/Aluminium",
+    discount_price: "$999.95",
+    price: "$329.00",
+  },
+
 ]);
 
 function chunkArray(array: any[], chunkSize: number) {
@@ -131,7 +198,8 @@ const chunkedCategories = chunkArray(categories.value, 8);
 }
 
 #popular-slider .carousel-control-next-icon {
-  padding: 25px; /* Adjust padding as needed */
+  padding: 25px;
+  /* Adjust padding as needed */
   background-color: rgb(83, 78, 78);
   background-image: none;
   border-radius: 50px;
@@ -142,18 +210,23 @@ const chunkedCategories = chunkArray(categories.value, 8);
 }
 
 #popular-slider .carousel-control-next-icon::before {
-  content: ">"; /* Add the greater than sign */
-  font-size: 20px; /* Adjust the font size as needed */
+  content: ">";
+  /* Add the greater than sign */
+  font-size: 20px;
+  /* Adjust the font size as needed */
   color: white;
   font-weight: bolder;
   position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
+  top: 50%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
   transform: translate(-50%, -50%);
 }
 
 #popular-slider .carousel-control-prev-icon {
-  padding: 25px; /* Adjust padding as needed */
+  padding: 25px;
+  /* Adjust padding as needed */
   background-color: rgb(83, 78, 78);
   background-image: none;
   border-radius: 50px;
@@ -164,24 +237,27 @@ const chunkedCategories = chunkArray(categories.value, 8);
 }
 
 #popular-slider .carousel-control-prev-icon::before {
-  content: "<"; /* Add the greater than sign */
-  font-size: 20px; /* Adjust the font size as needed */
+  content: "<";
+  /* Add the greater than sign */
+  font-size: 20px;
+  /* Adjust the font size as needed */
   color: white;
   font-weight: bolder;
   position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
+  top: 50%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
   transform: translate(-50%, -50%);
 }
 
-#popular-slider .carousel-inner {
-}
+#popular-slider .carousel-inner {}
 
 #popular-slider .carousel-item {
   min-height: 520px;
 }
 
-#popular-slider .hidden-image > img {
+#popular-slider .hidden-image>img {
   opacity: 0 !important;
 }
 </style>
@@ -190,16 +266,113 @@ const chunkedCategories = chunkArray(categories.value, 8);
 :root {
   --primary: #221e21;
 }
+
 * {
   font-family: "Rajdhani";
 }
+.cart-badge{
+  background-color: #000000;
+}
+.cart-badge:hover {
+  background-color: #ff2400;
+}
+.cart-badge:hover  .icon-bage{
+  background-color: #000000;
+}
+.icon-bage{
+  background-color: #ff2400;
+
+}
+.icon-bage:hover{
+  background-color: #000000;
+
+}
+.carparts_product_grid .product_action_btns .icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+    border-radius: 0;
+    font-weight: 700;
+    color: #fff;
+    justify-content: center;
+    background-color: #ff2400;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.07);
+}
+
+.product_action_btns {
+  top: 50%;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  position: absolute;
+  transform: translateY(-50%);
+  list-style: none;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.product_action_btns li {
+  opacity: 0;
+  transform: translateY(40px);
+  width: 100%;
+}
+
+.product_action_btns li:not(:last-child) {
+  margin-right: 8px;
+}
+
+.product_action_btns span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #404040;
+  margin: 5px 0;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Rajdhani";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  border-radius: 0;
+  padding: 0 20px;
+
+}
+
+.hover-effect .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* transform: translate(28%, 0%); */
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hover-effect:hover .overlay {
+  opacity: 1;
+}
 
 .custom-black {
-  color: #000000; /* or any custom black shade */
+  color: #000000;
+  /* or any custom black shade */
 }
+
 .custom-red {
-  color: #ff2400; /* or any custom black shade */
+  color: #ff2400;
+  /* or any custom black shade */
 }
+
 .carousel-inner {
   overflow: visible !important;
 }
@@ -207,22 +380,31 @@ const chunkedCategories = chunkArray(categories.value, 8);
 .full-price {
   text-decoration: line-through;
 }
-.card-deck > .card {
+
+.card-deck>.card {
   width: 310px;
   background-color: rgb(240, 238, 238);
 }
+
 .card {
   border-radius: 5px;
+
+  box-shadow: 0 0 5px 1px rgba(84, 84, 84, 0.32);
+  border: none;
 }
-.card > img {
-  height: 250px;
+
+.card-body {
+  padding: 0px;
 }
+
 .card-title {
   color: #365072;
 }
+
 .card-title :hover {
   color: #ff2400;
 }
+
 .circular-image {
   width: 300px;
   height: 300px;

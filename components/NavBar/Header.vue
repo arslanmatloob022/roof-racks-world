@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar">
-    <div class="navbar-logo">
+  <div class="main-nav">
+    <div class="logo">
       <img
         class="w-100"
         height="85"
@@ -9,78 +9,97 @@
         alt="Roof Rack and Towbar World"
       />
     </div>
-    <div class="navbar-mobile-logo">
-      <img
-        class="w-100"
-        height="85"
-        width="218"
-        src="@/images/mobile-logo.png"
-        alt="Roof Rack and Towbar World"
-      />
-    </div>
+    <div class="menu">
+      <ContactNavBar />
+      <nav class="navbar">
+        <!-- <div class="navbar-logo">
+          <img
+            class="w-100"
+            height="85"
+            width="218"
+            src="https://cdn.flowrix.app/85a5f8ac/uploads/2024/07/logo.webp"
+            alt="Roof Rack and Towbar World"
+          />
+        </div> -->
+        <!-- <div class="navbar-mobile-logo">
+          <img
+            class="w-100"
+            height="85"
+            width="218"
+            src="@/images/mobile-logo.png"
+            alt="Roof Rack and Towbar World"
+          />
+        </div> -->
 
-    <div class="navbar-links" :class="{ active: menuActive }">
-      <ul>
-        <li
-          @mouseover="openDropdown('shop')"
-          @mouseleave="closeDropdown('shop')"
-        >
-          <a>Shop</a>
-          <div v-show="dropdowns.shop" class="dropdown">
-            <ShopDropDown />
-          </div>
-        </li>
-        <li
-          @mouseover="openDropdown('inStoreServices')"
-          @mouseleave="closeDropdown('inStoreServices')"
-        >
-          <a class="">In-Store Services</a>
-          <div class="dropdown" v-show="dropdowns.inStoreServices">
-            <InStoreDropDown />
-          </div>
-        </li>
-        <li
-          @mouseover="openDropdown('brands')"
-          @mouseleave="closeDropdown('brands')"
-        >
-          <a href="#">Brands</a>
-        </li>
-        <li
-          @mouseover="openDropdown('visualiser')"
-          @mouseleave="closeDropdown('visualiser')"
-        >
-          <a href="#">Visualiser</a>
-        </li>
-        <li
-          @mouseover="openDropdown('stores')"
-          @mouseleave="closeDropdown('stores')"
-        >
-          <a href="#">Stores</a>
-          <div class="dropdown" v-show="dropdowns.stores">
-            <StoreDropDown />
-          </div>
-        </li>
-        <li
-          @mouseover="openDropdown('contact')"
-          @mouseleave="closeDropdown('contact')"
-        >
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-    <div class="navbar-actions">
-      <div class="is-flex">
-        <img style="height: 32px" src="@/images/car-100.png" alt="" srcset="" />
-        <div class="flex-column">
-          <button class="profile-icon">My Garage</button>
-          <button class="profile-icon">Select Your Car</button>
+        <div class="navbar-links" :class="{ active: menuActive }">
+          <ul>
+            <li
+              @mouseover="openDropdown('shop')"
+              @mouseleave="closeDropdown('shop')"
+            >
+              <a>Shop</a>
+              <div v-show="dropdowns.shop" class="dropdown">
+                <ShopDropDown />
+              </div>
+            </li>
+            <li
+              @mouseover="openDropdown('inStoreServices')"
+              @mouseleave="closeDropdown('inStoreServices')"
+            >
+              <a class="">In-Store Services</a>
+              <div class="dropdown" v-show="dropdowns.inStoreServices">
+                <InStoreDropDown />
+              </div>
+            </li>
+            <li
+              @mouseover="openDropdown('brands')"
+              @mouseleave="closeDropdown('brands')"
+            >
+              <a href="#">Brands</a>
+            </li>
+            <li
+              @mouseover="openDropdown('visualiser')"
+              @mouseleave="closeDropdown('visualiser')"
+            >
+              <a href="#">Visualiser</a>
+            </li>
+            <li
+              @mouseover="openDropdown('stores')"
+              @mouseleave="closeDropdown('stores')"
+            >
+              <a href="#">Stores</a>
+              <div class="dropdown" v-show="dropdowns.stores">
+                <StoreDropDown />
+              </div>
+            </li>
+            <li
+              @mouseover="openDropdown('contact')"
+              @mouseleave="closeDropdown('contact')"
+            >
+              <a href="#">Contact</a>
+            </li>
+          </ul>
         </div>
-      </div>
-      <button class="menu-icon" @click="toggleMenu">
-        <fa :icon="['fas', 'bars']" />
-      </button>
+        <div class="navbar-actions">
+          <div class="is-flex">
+            <img
+              style="height: 32px"
+              src="@/images/car-100.png"
+              alt=""
+              srcset=""
+            />
+            <div class="flex-column">
+              <button class="profile-icon">My Garage</button>
+              <button class="profile-icon">Select Your Car</button>
+            </div>
+          </div>
+          <button class="menu-icon" @click="toggleMenu">
+            <fa :icon="['fas', 'bars']" />
+          </button>
+        </div>
+      </nav>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -88,6 +107,7 @@ import { ref } from "vue";
 import ShopDropDown from "@/components/NavBar/ShopDropDown.vue";
 import InStoreDropDown from "@/components/NavBar/InStoreDropDown.vue";
 import StoreDropDown from "@/components/NavBar/StoreDropDown.vue";
+import ContactNavBar from "./ContactNavBar.vue";
 
 const dropdowns = ref({
   shop: false,
@@ -114,13 +134,25 @@ const toggleMenu = () => {
 </script>
 
 <style scoped>
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.main-nav .menu {
+  border-left: 2px solid #f0f0f0;
+  width: 64%;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #ff4426;
-  color: #fff;
+  background-color: #fff;
+  border-top: 2px solid #f0f0f0;
+  color: #ff4433;
 }
 
 .navbar-logo img {
@@ -158,7 +190,7 @@ const toggleMenu = () => {
 }
 
 .navbar-links a {
-  color: #fff;
+  color: #ff4426;
   text-decoration: none;
   padding: 0.5rem 1rem;
   display: block;
@@ -173,18 +205,18 @@ const toggleMenu = () => {
 
 .dropdown {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: -46.3%;
+  right: auto;
+  transform: translateX(-45%);
   top: 100%;
-  margin-left: auto;
-  margin-right: auto;
   padding: 6px;
-  transform: translateY(-1.6%);
+  transform: translateY(-1%);
   background-color: #ffffff;
   border-radius: 4px;
   box-shadow: 0 0 12px 1px #999;
   transition: max-height 0.5s ease, opacity 0.5s ease;
   z-index: 9999;
+  width: 98dvw;
 }
 
 .dropdown ul {
@@ -222,7 +254,7 @@ const toggleMenu = () => {
   background: none;
   border: none;
   cursor: pointer;
-  color: #fff;
+  color: #ff4426;
   font-size: 10px;
 }
 
@@ -230,7 +262,7 @@ const toggleMenu = () => {
   background: none;
   border: none;
   cursor: pointer;
-  color: #fff;
+  color: #ff4426;
   font-size: 15px;
 }
 

@@ -46,5 +46,8 @@
   },
   "NavBarStoreDropDown": {
     "description": "Auto imported from components/NavBar/StoreDropDown.vue"
+  },
+  "UtlitiesSearchbar": {
+    "description": "Auto imported from components/utlities/Searchbar.vue"
   }
 }

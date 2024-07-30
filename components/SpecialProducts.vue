@@ -1,12 +1,12 @@
 <template>
     <div style="width: 100%" id="special-slider">
         <h2 class="cu-heading p-5">Products On Special</h2>
-        <b-carousel :interval="0" controls indicators>
+        <b-carousel :interval="500" controls indicators>
             <b-carousel-slide v-for="(item, index) in categories" :key="index" class="pointer hidden-image"
                 img-src="https://res.cloudinary.com/dpkreativ/image/upload/b_auto,c_mpad,h_480,w_1024/v1646483551/wallpapers/car.jpg">
 
-                <div class="d-flex ">
-                    <img :src="item.url" alt="">
+                <div class="d-flex">
+                    <img :src="item.url" alt="" style="width: 40%; height: fit-content;">
                     <div>
                         <h1  class=" cu-title test-align-left">
                             <b>{{ item.title }}</b>
@@ -33,18 +33,18 @@ import { ref } from "vue";
 
 const categories = ref([
     {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
+        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/08/511565.webp",
         title: "Thule ProRide Roof Bike Rack Black/Aluminium",
         price: 247,
     },
     {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
+        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclic2_Mai.webp",
         title: "Towbars",
         price: 434,
     },
     {
         url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Bars",
+        title: "Jakima justclick",
         price: 100,
     },
     {
@@ -52,56 +52,7 @@ const categories = ref([
         title: "Roof Mount",
         price: 19,
     },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Roof Boxes",
-        price: 4123,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Kayak Racks",
-        price: 2145,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Keys and Locks",
-        price: 107,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Surf Pads",
-        price: 1035,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Alloy Platforms",
-        price: 679,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp0",
-        title: "Spacers",
-        price: 537,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "4WD & Camping",
-        price: 227,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Towbars",
-        price: 414,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Bars",
-        price: 1509,
-    },
-    {
-        url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
-        title: "Roof Mount",
-        price: 1986,
-    },
+    
 ]);
 
 
@@ -109,6 +60,10 @@ const categories = ref([
 </script>
 
 <style>
+
+.card{
+    cursor: pointer;
+}
 
 .hot-price{
     font-weight: 600;
@@ -155,7 +110,7 @@ const categories = ref([
 
 #special-slider .carousel-control-next{
  width: auto;
- right: 90px;
+ right: 40px;
 }
 
 #special-slider .carousel-control-next-icon:hover {
@@ -203,8 +158,8 @@ const categories = ref([
 #special-slider .carousel-inner {}
 
 #special-slider .carousel-item {
-    min-height: 520px;
-    max-height: 700px;
+    min-height: 400px;
+    max-height: 500px;
 }
 
 #special-slider .hidden-image>img {

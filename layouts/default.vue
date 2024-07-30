@@ -1,7 +1,7 @@
 <template>
   <div>
     <ContactNavBar class="ContactNavBar" v-if="showContactNavBar" />
-    <ContactNavBar />
+    <!-- <ContactNavBar /> -->
     <Header v-if="showHeader" />
     <Nuxt />
     <Footer />

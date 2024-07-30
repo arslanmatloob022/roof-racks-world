@@ -1,8 +1,7 @@
 <template>
   <nav class="navbar">
-    <div class="navbar-mobile-logo hide-on-mobile">
+    <div v-if="showContactNavBar" class="navbar-mobile-logo hide-on-mobile">
       <img
-        v-if="showContactNavBar"
         class="w-100"
         src="@/images/mobile-logo.png"
         alt="Roof Rack and Towbar World"
@@ -10,25 +9,28 @@
     </div>
 
     <div class="navbar-links" :class="{ active: menuActive }">
-      <input type="text" placeholder="Search..." />
+      <Searchbar />
     </div>
     <div class="navbar-actions">
       <div class="profile-icon">
-        <img src="@/images/woman-7531315_640.png" alt="" />
+        <font-awesome-icon class="i" :icon="['fas', 'user']" />
         <div class="text mt-2 hide-on-mobile">
           <p>Account</p>
+          <h6>Profile</h6>
         </div>
       </div>
       <div class="profile-icon mr-4">
-        <img class="mt-0" src="@/images/cart-64.png" alt="" />
+        <font-awesome-icon class="i" :icon="['fas', 'cart-shopping']" />
         <div class="text mt-2 hide-on-mobile">
-          <p>Cart ($ 0.00)</p>
+          <p>Shopping Cart</p>
+          <h6>$ 0.00</h6>
         </div>
       </div>
       <div class="profile-icon mr-4">
-        <img class="mt-0" src="@/images/call-50.png" alt="" />
+        <font-awesome-icon class="i" :icon="['fas', 'phone']" />
         <div class="text mt-2 hide-on-mobile">
-          <p>+123 45679 128</p>
+          <p>Call Us</p>
+          <h6>+123 45679 128</h6>
         </div>
       </div>
 
@@ -42,6 +44,7 @@
 
 <script setup lang="ts">
 import { defineComponent, ref, onMounted, onBeforeUnmount } from "vue";
+import Searchbar from "../utlities/Searchbar.vue";
 
 const menuActive = ref(false);
 const showContactNavBar = ref(false);
@@ -109,7 +112,7 @@ onBeforeUnmount(() => {
   border: 2px solid #ff4426;
   padding: 0.5rem;
   border-radius: 16px;
-  width: 320px;
+  width: 520px;
   margin-right: 1rem;
   background-color: #fff;
   color: #fff; /* Ensures the text color is white */
@@ -177,40 +180,39 @@ onBeforeUnmount(() => {
 .navbar-actions {
   display: flex;
   align-items: center;
-  justify-content: end;
-  justify-content: center;
   gap: 16px;
 }
 
 .navbar-actions .profile-icon {
-  background: none;
-  border: none;
   cursor: pointer;
-  width: max-content;
   display: flex;
-  gap: 4px;
+  align-items: center;
   margin-right: 10px;
   margin-right: 36px;
+  gap: 4px;
 }
 
-.navbar-actions .profile-icon img {
-  height: 34px;
-  width: 34px;
-  border-radius: 4px;
+.navbar-actions .profile-icon .i {
+  font-size: 40px;
+  margin-right: 4px;
+  color: #d4d4d4;
 }
 
 .navbar-actions .profile-icon .text {
   margin: 0;
+  line-height: 0;
+  padding-top: 8px;
 }
 
 .navbar-actions .profile-icon .text p {
-  font-size: 15px;
-  color: #555;
+  font-size: 18px;
+  font-weight: 500;
+  color: #adadad;
   white-space: nowrap;
   text-wrap: nowrap;
 }
-.navbar-actions .profile-icon .text p span {
-  font-size: 15px;
+.navbar-actions .profile-icon .text h6 {
+  font-size: 18px;
   color: #2b2b2b;
   font-weight: 600;
   white-space: nowrap;

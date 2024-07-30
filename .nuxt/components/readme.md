@@ -22,3 +22,4 @@ You can directly use them in pages and other components without the need to impo
 - `<NavBarInStoreDropDown>` | `<nav-bar-in-store-drop-down>` (components/NavBar/InStoreDropDown.vue)
 - `<NavBarShopDropDown>` | `<nav-bar-shop-drop-down>` (components/NavBar/ShopDropDown.vue)
 - `<NavBarStoreDropDown>` | `<nav-bar-store-drop-down>` (components/NavBar/StoreDropDown.vue)
+- `<UtlitiesSearchbar>` | `<utlities-searchbar>` (components/utlities/Searchbar.vue)
