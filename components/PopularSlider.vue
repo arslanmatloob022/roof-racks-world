@@ -143,7 +143,7 @@ const chunkedCategories = chunkArray(categories.value, 8);
 
 #popular-slider .carousel-control-next-icon::before {
   content: ">"; /* Add the greater than sign */
-  font-size: 40px; /* Adjust the font size as needed */
+  font-size: 20px; /* Adjust the font size as needed */
   color: white;
   font-weight: bolder;
   position: absolute;
@@ -165,7 +165,7 @@ const chunkedCategories = chunkArray(categories.value, 8);
 
 #popular-slider .carousel-control-prev-icon::before {
   content: "<"; /* Add the greater than sign */
-  font-size: 40px; /* Adjust the font size as needed */
+  font-size: 20px; /* Adjust the font size as needed */
   color: white;
   font-weight: bolder;
   position: absolute;
@@ -293,7 +293,7 @@ const chunkedCategories = chunkArray(categories.value, 8);
 }
 
 .slides {
-  font-size: 40px;
+  font-size: 20px;
   display: flex;
   height: 100%;
   align-items: center;

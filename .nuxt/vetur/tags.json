@@ -20,6 +20,12 @@
   "PopularSlider": {
     "description": "Auto imported from components/PopularSlider.vue"
   },
+  "Services": {
+    "description": "Auto imported from components/Services.vue"
+  },
+  "SpecialProducts": {
+    "description": "Auto imported from components/SpecialProducts.vue"
+  },
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
   },

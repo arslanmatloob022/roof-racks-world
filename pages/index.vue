@@ -1,11 +1,12 @@
 <template>
   <div>
-    <!-- <Tutorial/> -->
-    <!-- <MainSlider /> -->
-    <!-- <CategorySlider /> -->
+    <MainSlider />
+    <Services/>
+    <CategorySlider />
 
-    <!-- <BrandSlider /> -->
-    <!-- <PopularSlider /> -->
+    <BrandSlider />
+    <SpecialProducts/>
+    <PopularSlider />
     <ContactForm />
   </div>
 </template>

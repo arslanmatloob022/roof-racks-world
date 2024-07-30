@@ -34,7 +34,7 @@
           @mouseover="openDropdown('inStoreServices')"
           @mouseleave="closeDropdown('inStoreServices')"
         >
-          <a>In-Store Services</a>
+          <a class="">In-Store Services</a>
           <div class="dropdown" v-show="dropdowns.inStoreServices">
             <InStoreDropDown />
           </div>
@@ -154,6 +154,7 @@ const toggleMenu = () => {
 
 .navbar-links li {
   margin: 0 1rem;
+  cursor: pointer;
 }
 
 .navbar-links a {

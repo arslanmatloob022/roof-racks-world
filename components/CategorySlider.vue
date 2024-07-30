@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%" id="category-slider">
-    <h2 class="cu-heading">Shop By Categories</h2>
+    <h2 class="cu-heading p-5">Shop By Categories</h2>
     <b-carousel :interval="0" controls indicators>
       <b-carousel-slide
         v-for="(categoryChunk, index) in chunkedCategories"
@@ -95,44 +95,24 @@ const categories = ref([
     items: 537,
   },
   {
-    url: "image_url_11",
+    url: "image_url_1",
     name: "4WD & Camping",
     items: 227,
   },
   {
-    url: "image_url_12",
+    url: "image_url_2",
     name: "Towbars",
     items: 414,
   },
   {
-    url: "image_url_13",
+    url: "image_url_3",
     name: "Bars",
     items: 1509,
   },
   {
-    url: "image_url_14",
+    url: "image_url_4",
     name: "Roof Mount",
     items: 1986,
-  },
-  {
-    url: "image_url_15",
-    name: "Keys and Locks",
-    items: 10227,
-  },
-  {
-    url: "image_url_16",
-    name: "Surf Pads",
-    items: 10335,
-  },
-  {
-    url: "image_url_17",
-    name: "Alloy Platforms",
-    items: 67339,
-  },
-  {
-    url: "image_url_18",
-    name: "Spacers",
-    items: 532137,
   },
 ]);
 
@@ -144,7 +124,7 @@ function chunkArray(array: any[], chunkSize: number) {
   return chunks;
 }
 
-const chunkedCategories = chunkArray(categories.value, 12);
+const chunkedCategories = chunkArray(categories.value, 8);
 </script>
 
 <style>
@@ -172,7 +152,7 @@ const chunkedCategories = chunkArray(categories.value, 12);
 
 #category-slider .carousel-control-next-icon::before {
   content: ">"; /* Add the greater than sign */
-  font-size: 40px; /* Adjust the font size as needed */
+  font-size: 20px; /* Adjust the font size as needed */
   color: white;
   font-weight: bolder;
   position: absolute;
@@ -194,7 +174,7 @@ const chunkedCategories = chunkArray(categories.value, 12);
 
 #category-slider .carousel-control-prev-icon::before {
   content: "<"; /* Add the greater than sign */
-  font-size: 40px; /* Adjust the font size as needed */
+  font-size: 20px; /* Adjust the font size as needed */
   color: white;
   font-weight: bolder;
   position: absolute;
@@ -268,10 +248,10 @@ const chunkedCategories = chunkArray(categories.value, 12);
   position: absolute;
   top: 0;
   left: 0;
-  width: 94%;
-  height: 60%;
-  transform: translate(2%, 0%);
-  background-color: transparent;
+  width: 98%;
+  height: 56%;
+  /* transform: translate(28%, 0%); */
+  /* background-color: rgba(0, 0, 0, 0.5); */
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
@@ -362,7 +342,7 @@ const chunkedCategories = chunkArray(categories.value, 12);
 }
 
 .slides {
-  font-size: 40px;
+  font-size: 20px;
   display: flex;
   height: 100%;
   align-items: center;

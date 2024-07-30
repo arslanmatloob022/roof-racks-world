@@ -40,7 +40,7 @@ import { ref } from "vue";
             placeholder="Message"
           ></textarea>
         </div>
-        <div class="floating-cover"></div>
+        <div class="floating-cover hide-on-mobile"></div>
       </div>
     </div>
   </div>
