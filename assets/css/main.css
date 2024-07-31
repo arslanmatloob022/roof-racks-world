@@ -90,6 +90,9 @@
   box-shadow: 0 0 8px 1px #9999996c;
 }
 
+.hide-on-mobile {
+  display: block;
+}
 @media (max-width: 768px) {
   .content {
     padding: 1rem;
@@ -129,6 +132,9 @@
   .form-cover {
     padding: 6px 8px;
     border-top: 3px solid #ff4426;
+  }
+  .hide-on-mobile {
+    display: none;
   }
 }
 

@@ -10,7 +10,7 @@
                 <img src="../assets/images/logofooter.webp" alt="logofooter" />
               </NuxtLink>
             </div>
-            <div class="footerphone">
+            <div class="footerphone hide-on-mobile">
               <span>(02) 8999 8878</span>
             </div>
           </div>
@@ -18,14 +18,16 @@
         <div class="col-lg-4 col-md-4 col-sm-12"></div>
         <div class="col-lg-4 col-md-4 col-sm-12">
           <div class="footer-useful-links">
-            <h3 class="footer-head">Customer Care</h3>
+            <h3 class="footer-head hide-on-mobile">Customer Care</h3>
             <ul class="row p-0">
               <div class="col-6">
+                <li>Customer care</li>
                 <li>About</li>
                 <li>Terms of Use</li>
                 <li>Privacy Policy</li>
               </div>
               <div class="col-6">
+                <li>(02) 8999 8878</li>
                 <li>Returns & Exchanges</li>
                 <li>Contact Us</li>
                 <li>Shipping Policy</li>
@@ -38,14 +40,17 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="row justify-content-between align-items-center">
-          <div class="my-2 col-sm-auto order-md-first order-last left text-center">
-            Powered by <span>FLOWRIX</span> | Developmed by <span>iVersion</span>
+          <div
+            class="my-2 col-sm-auto order-md-first order-last left text-center"
+          >
+            Powered by <span>FLOWRIX</span> | Developmed by
+            <span>iVersion</span>
           </div>
           <div class="my-2 col-sm-auto text-center center">
-            <span class="mt-2 ">© Roof Rack and Towbar World.</span>
+            <span class="mt-2">© Roof Rack and Towbar World.</span>
           </div>
           <div class="my-2 col-sm-auto right text-center">
-            <img src="../assets/images/payments.png" alt="">
+            <img src="../assets/images/payments.png" alt="" />
           </div>
         </div>
       </div>
@@ -91,7 +96,9 @@ li {
   padding: 15px 0px;
   border-top: 2px solid #4d4d4d;
 }
-.left, .center, .right {
+.left,
+.center,
+.right {
   font-size: 16px;
   line-height: 19px;
   font-weight: 500;
@@ -100,9 +107,16 @@ li {
   color: red;
 }
 
-@media screen and (max-width: 767px) {
+@media (max-width: 768px) {
   .footer-head {
     padding: 20px 0;
+    margin-bottom: 12px;
+  }
+  .footerlogo {
+    margin-bottom: 60px;
+  }
+  li {
+    text-align: center;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="main-nav">
-    <div class="logo">
+    <div class="logo hide-on-mobile">
       <img
         class="w-100"
         height="85"
@@ -81,14 +81,14 @@
           </ul>
         </div>
         <div class="navbar-actions">
-          <div class="is-flex">
+          <div class="garage is-flex">
             <img
               style="height: 32px"
               src="@/images/car-100.png"
               alt=""
               srcset=""
             />
-            <div class="flex-column">
+            <div class="garage-button flex-column">
               <button class="profile-icon">My Garage</button>
               <button class="profile-icon">Select Your Car</button>
             </div>
@@ -207,8 +207,8 @@ const toggleMenu = () => {
   position: absolute;
   left: -46.3%;
   right: auto;
-  transform: translateX(-45%);
   top: 100%;
+  transform: translateX(-45%);
   padding: 6px;
   transform: translateY(-1%);
   background-color: #ffffff;
@@ -241,6 +241,13 @@ const toggleMenu = () => {
   display: flex;
   gap: 12px;
   align-items: center;
+}
+
+.navbar-actions .garage {
+  display: block;
+}
+.navbar-actions .garage-button {
+  display: block;
 }
 
 .navbar-actions input {
@@ -320,7 +327,7 @@ const toggleMenu = () => {
     align-items: center;
     z-index: 9999;
     top: 60px;
-    left: 0;
+    left: -1px;
     width: 100%;
     background-color: #ff4426;
     padding: 1rem;
@@ -353,7 +360,10 @@ const toggleMenu = () => {
   .navbar-links.active {
     display: flex;
   }
-
+  .navbar-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
   .navbar-actions .menu-icon {
     display: block;
   }
@@ -375,6 +385,25 @@ const toggleMenu = () => {
   }
   .navbar-mobile-logo img {
     display: block;
+  }
+  .navbar-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar-actions .garage img {
+    height: 16px;
+  }
+  .navbar-actions .garage-button {
+    display: none;
+  }
+  .navbar {
+    border: none;
+  }
+  .main-nav .menu {
+    width: 100%;
+  }
+  .navbar-links a {
+    color: #ffffff;
   }
 }
 </style>

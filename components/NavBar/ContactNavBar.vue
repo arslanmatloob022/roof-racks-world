@@ -311,10 +311,11 @@ onBeforeUnmount(() => {
 
   .navbar-actions .profile-icon {
     display: block;
+    margin-left: 5%;
   }
-  .navbar-actions .profile-icon img {
-    height: 34px;
-    width: 34px;
+  .navbar-actions .profile-icon .i {
+    height: 26px;
+    width: 26px;
     border-radius: 8px;
   }
   .navbar-logo img {
