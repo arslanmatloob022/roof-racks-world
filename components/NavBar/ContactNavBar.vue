@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar" :class="showContactNavBar ? 'darkBg' : ''">
     <div v-if="showContactNavBar" class="navbar-mobile-logo hide-on-mobile">
       <img
         class="w-100"
@@ -14,21 +14,30 @@
     <div class="navbar-actions">
       <div class="profile-icon">
         <font-awesome-icon class="i" :icon="['fas', 'user']" />
-        <div class="text mt-2 hide-on-mobile">
+        <div
+          class="text mt-2 hide-on-mobile"
+          :class="{ lighttext: showContactNavBar }"
+        >
           <p>Account</p>
           <h6>Profile</h6>
         </div>
       </div>
       <div class="profile-icon mr-4">
         <font-awesome-icon class="i" :icon="['fas', 'cart-shopping']" />
-        <div class="text mt-2 hide-on-mobile">
+        <div
+          class="text mt-2 hide-on-mobile"
+          :class="{ lighttext: showContactNavBar }"
+        >
           <p>Shopping Cart</p>
           <h6>$ 0.00</h6>
         </div>
       </div>
       <div class="profile-icon mr-4">
         <font-awesome-icon class="i" :icon="['fas', 'phone']" />
-        <div class="text mt-2 hide-on-mobile">
+        <div
+          class="text mt-2 hide-on-mobile"
+          :class="{ lighttext: showContactNavBar }"
+        >
           <p>Call Us</p>
           <h6>+123 45679 128</h6>
         </div>
@@ -79,6 +88,10 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.light-text p {
+  color: #fff;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -86,6 +99,10 @@ onBeforeUnmount(() => {
   padding: 0.5rem 2rem;
   background-color: #ffffff;
   color: #ff4426;
+}
+
+.darkBg {
+  background-color: #004f7b;
 }
 
 .navbar-logo img {
@@ -202,6 +219,13 @@ onBeforeUnmount(() => {
   margin: 0;
   line-height: 0;
   padding-top: 8px;
+}
+
+.navbar-actions .profile-icon .text.lighttext p {
+  color: #fff;
+}
+.navbar-actions .profile-icon .text.lighttext h6 {
+  color: #f2f2f2;
 }
 
 .navbar-actions .profile-icon .text p {

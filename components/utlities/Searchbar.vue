@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="search-bar">
+    <div class="search-bar" :class="showContactNavBar ? 'large-search' : ''">
       <input
         type="text"
         placeholder="Search..."
@@ -13,24 +13,33 @@
     </div>
   </section>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      searchQuery: "",
-    };
-  },
-  methods: {
-    handleInput() {
-      // Handle input change if needed
-    },
-    search() {
-      // Handle search functionality
-      console.log("Searching for: " + this.searchQuery);
-      // Add your search logic here
-    },
-  },
+<script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from "vue";
+const showContactNavBar = ref(false);
+const showHeader = ref(true);
+const searchQuery = ref("");
+const menuActive = ref(false);
+
+const search = () => {};
+const handleInput = () => {};
+
+const handleScroll = () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  showContactNavBar.value = scrollTop >= 100; // Show ContactNavBar after scrolling down 100px
+  showHeader.value = scrollTop >= 0; // Show Header only at the top of the page
 };
+
+const toggleMenu = () => {
+  menuActive.value = !menuActive.value;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 <style scoped>
 .search-bar {
@@ -42,6 +51,9 @@ export default {
   border-radius: 25px;
   width: 100%;
   width: fit-content;
+}
+.large-search {
+  width: 600px;
 }
 
 .search-bar input {
