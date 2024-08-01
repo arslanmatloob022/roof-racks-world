@@ -24,7 +24,7 @@ const toggleSearch = () => {
                 <input
                   type="text"
                   v-model="searchQuery"
-                  placeholder="Search..."
+                  placeholder="Email"
                   @click.stop
                 />
                 <button class="i">Subscribe</button>
