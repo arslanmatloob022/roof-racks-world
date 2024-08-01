@@ -14,7 +14,7 @@ import Header from "~/components/NavBar/Header.vue";
 import Footer from "~/components/Footer.vue";
 import ContactNavBar from "~/components/NavBar/ContactNavBar.vue";
 
-const showContactNavBar = ref(true);
+const showContactNavBar = ref(false);
 const showHeader = ref(true);
 
 const handleScroll = () => {

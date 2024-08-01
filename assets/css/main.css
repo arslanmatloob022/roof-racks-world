@@ -1,5 +1,10 @@
 /* assets/css/main.css */
 
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+
 /* Define your global styles here */
 .global-class {
   background-color: #f0f0f0;

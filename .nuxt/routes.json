@@ -3,7 +3,6 @@
     "name": "index",
     "path": "/",
     "component": "/home/dev/Music/roof-racks-world/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_391ca31a"
+    "chunkName": "pages/index"
   }
 ]
