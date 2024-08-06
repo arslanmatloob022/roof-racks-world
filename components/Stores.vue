@@ -50,7 +50,7 @@
               ><img
                 loading="lazy"
                 src="https://www.roofrackworld.com.au/assets/map-bg-1-C0OfzIc-.webp"
-                class="w-110"
+                class="w-100"
                 alt="Artarmon Store Map"
                 data-v-3e25bcad=""
             /></a>
@@ -145,5 +145,27 @@ export default {
 }
 .card-text p a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .store {
+    padding: 4px 6px;
+  }
+  .card-body {
+    background-color: transparent;
+  }
+  .store-title {
+    font-size: 29px;
+  }
+  .card-title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .card-text .icon {
+    font-size: 26px;
+  }
+  .card-text p {
+    font-size: 16px;
+  }
 }
 </style>
