@@ -15,6 +15,7 @@ You can directly use them in pages and other components without the need to impo
 - `<PopularSlider>` | `<popular-slider>` (components/PopularSlider.vue)
 - `<Services>` | `<services>` (components/Services.vue)
 - `<SpecialProducts>` | `<special-products>` (components/SpecialProducts.vue)
+- `<Store>` | `<store>` (components/Store.vue)
 - `<Tutorial>` | `<tutorial>` (components/Tutorial.vue)
 - `<VisitingSection>` | `<visiting-section>` (components/VisitingSection.vue)
 - `<NavBarContactNavBar>` | `<nav-bar-contact-nav-bar>` (components/NavBar/ContactNavBar.vue)

@@ -80,4 +80,17 @@ onBeforeUnmount(() => {
 .search-bar button:hover {
   background-color: #242424;
 }
+
+@media (max-width: 768px) {
+  .large-search {
+    width: 300px;
+  }
+  .search-bar {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 50%;
+  }
+}
 </style>

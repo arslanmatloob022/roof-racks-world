@@ -26,6 +26,9 @@
   "SpecialProducts": {
     "description": "Auto imported from components/SpecialProducts.vue"
   },
+  "Store": {
+    "description": "Auto imported from components/Store.vue"
+  },
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
   },

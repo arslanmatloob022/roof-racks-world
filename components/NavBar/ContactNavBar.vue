@@ -1,60 +1,138 @@
 <template>
-  <nav class="navbar" :class="showContactNavBar ? 'darkBg' : ''">
-    <div v-if="showContactNavBar" class="navbar-mobile-logo hide-on-mobile">
-      <img
-        class="w-100"
-        src="@/images/mobile-logo.png"
-        alt="Roof Rack and Towbar World"
-      />
-    </div>
+  <div>
+    <nav class="navbar" :class="showContactNavBar ? 'darkBg' : ''">
+      <div v-if="showContactNavBar" class="navbar-mobile-logo hide-on-mobile">
+        <img
+          class="w-100"
+          src="@/images/mobile-logo.png"
+          alt="Roof Rack and Towbar World"
+        />
+      </div>
 
-    <div class="navbar-links" :class="{ active: menuActive }">
+      <div class="navbar-links" :class="{ active: searchActive }">
+        <Searchbar class="hide-on-mobile" />
+      </div>
+
+      <div class="navbar-actions">
+        <div style="margin-right: 10%" class="show-on-mobile">
+          <img
+            class="w-100"
+            height="36"
+            width="40"
+            src="https://cdn.flowrix.app/85a5f8ac/uploads/2024/07/logo.webp"
+            alt="Roof Rack and Towbar World"
+          />
+        </div>
+
+        <button class="menu-icon profile-icon" @click="showSearch">
+          <fa class="i" :icon="['fas', 'magnifying-glass']" />
+        </button>
+
+        <div class="profile-icon">
+          <font-awesome-icon
+            class="i hide-on-mobile"
+            :icon="['fas', 'phone']"
+          />
+          <div
+            class="text mt-2 hide-on-mobile"
+            :class="{ lighttext: showContactNavBar }"
+          >
+            <p>Call us</p>
+            <h6>123 456 45</h6>
+          </div>
+        </div>
+        <div
+          style="font-size: 28px; margin-right: 4px; color: #d4d4d4"
+          class="show-on-mobile"
+        >
+          <font-awesome-icon class="i" :icon="['fas', 'car-rear']" />
+        </div>
+
+        <div class="profile-icon">
+          <font-awesome-icon class="i" :icon="['fab', 'opencart']" />
+          <div
+            class="text mt-2 hide-on-mobile"
+            :class="{ lighttext: showContactNavBar }"
+          >
+            <p>Shopping Cart</p>
+            <h6>$ 0.00</h6>
+          </div>
+        </div>
+
+        <div class="profile-icon">
+          <font-awesome-icon class="i" :icon="['far', 'user']" />
+          <div
+            class="text mt-2 hide-on-mobile"
+            :class="{ lighttext: showContactNavBar }"
+          >
+            <p>Account</p>
+            <h6>Profile</h6>
+          </div>
+        </div>
+
+        <button class="menu-icon profile-icon" @click="">
+          <fa @click="toggleMenu" class="i" :icon="['fas', 'bars']" />
+        </button>
+      </div>
+    </nav>
+    <div
+      v-if="showSearchbar"
+      style="
+        display: flex;
+        position: fixed;
+        top: 10dvh;
+        left: 0;
+        padding-left: 17%;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #ff4426;
+      "
+    >
       <Searchbar />
     </div>
-    <div class="navbar-actions">
-      <div class="profile-icon">
-        <font-awesome-icon class="i" :icon="['fas', 'user']" />
-        <div
-          class="text mt-2 hide-on-mobile"
-          :class="{ lighttext: showContactNavBar }"
-        >
-          <p>Account</p>
-          <h6>Profile</h6>
-        </div>
+    <div v-if="menuActive" class="mobile-sidebar-menu">
+      <font-awesome-icon
+        @click="toggleMenu"
+        style="float: right; font-size: 26px; margin: 20px; cursor: pointer"
+        :icon="['fas', 'xmark']"
+      />
+      <div class="logo">
+        <img
+          height="76"
+          width="auto"
+          src="https://cdn.flowrix.app/85a5f8ac/uploads/2024/07/logo.webp"
+          alt="Roof Rack and Towbar World"
+        />
       </div>
-      <div class="profile-icon mr-4">
-        <font-awesome-icon class="i" :icon="['fas', 'cart-shopping']" />
-        <div
-          class="text mt-2 hide-on-mobile"
-          :class="{ lighttext: showContactNavBar }"
-        >
-          <p>Shopping Cart</p>
-          <h6>$ 0.00</h6>
-        </div>
+      <div class="menu-links">
+        <ul>
+          <li>
+            <a href="#">Shop</a>
+            <font-awesome-icon :icon="['fas', 'square-plus']" />
+          </li>
+          <li>
+            <a href="#">In-Store Services</a>
+            <font-awesome-icon :icon="['fas', 'square-plus']" />
+          </li>
+          <li><a href="#">Brands</a></li>
+          <li><a href="#">Visualizer</a></li>
+          <li>
+            <a href="#">Stores</a
+            ><font-awesome-icon :icon="['fas', 'square-plus']" />
+          </li>
+          <li><a href="#">Contact</a></li>
+        </ul>
       </div>
-      <div class="profile-icon mr-4">
-        <font-awesome-icon class="i" :icon="['fas', 'phone']" />
-        <div
-          class="text mt-2 hide-on-mobile"
-          :class="{ lighttext: showContactNavBar }"
-        >
-          <p>Call Us</p>
-          <h6>+123 45679 128</h6>
-        </div>
-      </div>
-
-      <fa :icon="['fab', 'cart']" />
-      <button class="menu-icon" @click="toggleMenu">
-        <fa :icon="['fas', 'cart-shopping']" />
-      </button>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { defineComponent, ref, onMounted, onBeforeUnmount } from "vue";
 import Searchbar from "../utlities/Searchbar.vue";
 
+const searchActive = ref(false);
 const menuActive = ref(false);
 const showContactNavBar = ref(false);
 const showHeader = ref(true);
@@ -74,6 +152,16 @@ const handleScroll = () => {
   showHeader.value = scrollTop >= 0; // Show Header only at the top of the page
 };
 
+const toggleSearch = () => {
+  searchActive.value = !searchActive.value;
+};
+
+const showSearchbar = ref(false);
+
+const showSearch = () => {
+  showSearchbar.value = !showSearchbar.value;
+};
+
 const toggleMenu = () => {
   menuActive.value = !menuActive.value;
 };
@@ -88,6 +176,49 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.mobile-sidebar-menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 280px;
+  height: 100dvh;
+  z-index: 999;
+  background-color: #fff;
+  padding: 50px 10px;
+  padding-right: 30px;
+}
+
+.mobile-sidebar-menu .logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-links {
+  margin-top: 40px;
+}
+.menu-links ul {
+  list-style: none;
+}
+
+.menu-links ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #55555556;
+  transition: color 0.4s ease-in-out;
+  transition: font-weight 0.1s ease-in-out;
+}
+.menu-links ul li:hover {
+  color: #ff4426;
+  font-weight: 600;
+}
+.menu-links ul li a {
+  text-decoration: none;
+  color: #004f7b;
+}
+
 .light-text p {
   color: #fff;
 }
@@ -99,6 +230,7 @@ onBeforeUnmount(() => {
   padding: 0.5rem 2rem;
   background-color: #ffffff;
   color: #ff4426;
+  position: relative;
 }
 
 .darkBg {
@@ -129,7 +261,7 @@ onBeforeUnmount(() => {
   border: 2px solid #ff4426;
   padding: 0.5rem;
   border-radius: 16px;
-  width: 520px;
+  width: auto;
   margin-right: 1rem;
   background-color: #fff;
   color: #fff; /* Ensures the text color is white */
@@ -204,8 +336,6 @@ onBeforeUnmount(() => {
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-right: 10px;
-  margin-right: 36px;
   gap: 4px;
 }
 
@@ -284,49 +414,30 @@ onBeforeUnmount(() => {
   .hide-on-mobile {
     display: none;
   }
-  .navbar-links {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    z-index: 9999;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #ff4426;
-    padding: 1rem;
-  }
-  .navbar-links ul {
+  .navbar {
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 1rem;
+    background-color: #004f7b;
+  }
+  .navbar .navbar-mobile-logo {
+    display: none;
+  }
+
+  .navbar .navbar-links {
+    display: none;
   }
 
   .dropdown {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 6px;
-    background-color: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0 0 12px 1px #999;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    z-index: 9999;
-  }
-  .navbar-links li {
-    margin: 0;
-    width: 100vw;
-    position: relative;
+    display: none;
   }
 
-  .navbar-links.active {
-    display: flex;
-  }
   .navbar-actions {
-    margin-left: 14%;
+    gap: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .navbar-actions .menu-icon {
@@ -335,12 +446,13 @@ onBeforeUnmount(() => {
 
   .navbar-actions .profile-icon {
     display: block;
-    margin-left: 5%;
+    margin-left: 0;
   }
   .navbar-actions .profile-icon .i {
     height: 26px;
     width: 26px;
     border-radius: 8px;
+    margin-right: 8px;
   }
   .navbar-logo img {
     display: none;

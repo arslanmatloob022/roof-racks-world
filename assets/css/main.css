@@ -98,6 +98,10 @@ h1 {
 .hide-on-mobile {
   display: block;
 }
+
+.show-on-mobile {
+  display: none;
+}
 @media (max-width: 768px) {
   .content {
     padding: 1rem;
@@ -140,6 +144,9 @@ h1 {
   }
   .hide-on-mobile {
     display: none;
+  }
+  .show-on-mobile {
+    display: block;
   }
 }
 

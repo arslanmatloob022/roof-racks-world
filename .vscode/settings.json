@@ -3,7 +3,9 @@
     "crossorigin",
     "fontawesome",
     "fortawesome",
+    "lighttext",
     "Nuxt",
-    "nuxtjs"
+    "nuxtjs",
+    "opencart"
   ]
 }

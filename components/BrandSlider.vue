@@ -1,5 +1,8 @@
 <template>
   <div>
+
+
+  <div v-if="!isMobileMode">
     <h2 class="cu-heading p-5">Shop By Brand</h2>
     <div
       style="width: 100%; background-color: rgb(246, 247, 248)"
@@ -32,18 +35,39 @@
       </b-carousel>
     </div>
   </div>
+
+  <div v-if="isMobileMode">
+    <div class="d-flex justify-content-between align-items-center p-4  ">
+      <h2 class="cu-heading  pl-0">Shop By Brand</h2>
+      <p class="view">view all</p>
+    </div>
+
+      <div class="d-flex flex-column">
+        <div class="pl-5 pr-5" style=" display: grid; grid-template-columns: repeat(3, 1fr); row-gap: 10px; column-gap: 30px;" >
+          <div class="miniSlider  justify-content-between align-items-center "   v-for="(item, index) in categories" :key="index">
+            <!-- <div class="  d-flex  align-items-center " style="gap: 10px;"> -->
+
+              <img :src="item.url" alt="" style="width: 100%;">
+              <!-- <p class="mb-0" style="font-weight: 700; color: black;">{{ item.name }} hlo word</p> -->
+            <!-- </div> -->
+            <!-- <i class="fa fa-angle-right"></i> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import "vue3-carousel/dist/carousel.css";
-import { ref, defineComponent } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 
 const categories = ref([
-  {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/yakima.png",
-    name: "4WD & Camping",
-    items: 247,
-  },
+  // {
+  //   url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/yakima.png",
+  //   name: "4WD & Camping",
+  //   items: 247,
+  // },
   {
     url: "	https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/rhino-rack.png",
     name: "Towbars",
@@ -124,6 +148,21 @@ const categories = ref([
   
 ]);
 
+const isMobileMode = ref(false);
+
+const updateIsMobileMode = () => {
+  isMobileMode.value = window.innerWidth <= 600;
+};
+
+onMounted(() => {
+  updateIsMobileMode();
+  window.addEventListener('resize', updateIsMobileMode);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateIsMobileMode);
+});
+
 function chunkArray(array: any[], chunkSize: number) {
   const chunks = [];
   for (let i = 0; i < array.length; i += chunkSize) {
@@ -159,7 +198,7 @@ const chunkedCategories = chunkArray(categories.value, 8);
 
 @media (max-width: 760px) {
   .cu-heading {
-    font-size: 30.5px !important; /* Reduce font size by 25% if screen width is less than 760px */
+    font-size: 26.5px !important; /* Reduce font size by 25% if screen width is less than 760px */
   }
 }
 
@@ -225,6 +264,13 @@ const chunkedCategories = chunkArray(categories.value, 8);
 </style>
 
 <style scoped>
+
+.miniSlider{
+  border-radius: 10px;
+    margin: 10px 0;
+    padding: 6px;
+    box-shadow: 0 0 5px 1px #004f7b52;
+}
 :root {
   --primary: #221e21;
 }

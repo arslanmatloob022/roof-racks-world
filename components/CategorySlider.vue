@@ -1,5 +1,9 @@
 <template>
-  <div style="width: 100%" id="category-slider">
+
+  <div>
+
+  
+  <div style="width: 100%" id="category-slider"  v-if="!isMobileMode">
     <h2 class="cu-heading p-5">Shop By Categories</h2>
     <b-carousel :interval="0" controls indicators>
       <b-carousel-slide
@@ -36,12 +40,51 @@
         </div>
       </b-carousel-slide>
     </b-carousel>
+
   </div>
+
+
+  <div v-if="isMobileMode">
+    <div class="d-flex justify-content-between align-items-center p-4  ">
+      <h2 class="cu-heading  pl-0">Shop By Categories</h2>
+      <p class="view"> view all</p>
+    </div>
+
+      <div class="d-flex flex-column">
+        <div class="pl-3 d-flex flex-column" style="gap: 1px;">
+          <div class=" miniSlider d-flex justify-content-between align-items-center "  v-for="(item, index) in chunkedCategories[0]" :key="index">
+            <div class="  d-flex  align-items-center " style="gap: 10px;">
+
+              <img :src="item.url" alt="" style="width: 50px; height: 50px;">
+              <p class="mb-0" style="font-weight: 700; color: black;">{{ item.name }} </p>
+            </div>
+            <!-- <i class="fa fa-angle-right"></i> -->
+            <font-awesome-icon class="mr-4" :icon="['fas', 'angle-right']" />
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import "vue3-carousel/dist/carousel.css";
-import { ref } from "vue";
+
+const isMobileMode = ref(false);
+
+const updateIsMobileMode = () => {
+  isMobileMode.value = window.innerWidth <= 600;
+};
+
+onMounted(() => {
+  updateIsMobileMode();
+  window.addEventListener('resize', updateIsMobileMode);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateIsMobileMode);
+});
 
 const categories = ref([
   {
@@ -168,6 +211,10 @@ const chunkedCategories = chunkArray(categories.value, 10);
 </script>
 
 <style>
+
+.view{
+  color: #365072;
+}
 .cu-heading {
   font-weight: 600;
   color: #004f7b;
@@ -242,6 +289,14 @@ const chunkedCategories = chunkArray(categories.value, 10);
 </style>
 
 <style scoped>
+
+.miniSlider{
+  background: #f7f7f7;
+    border: 1px solid #004d78;
+    border-radius: 10px;
+    margin: 5px 10px;
+    overflow: hidden;
+}
 :root {
   --primary: #221e21;
 }

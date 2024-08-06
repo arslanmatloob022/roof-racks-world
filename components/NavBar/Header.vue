@@ -365,7 +365,7 @@ const toggleMenu = () => {
     justify-content: space-between;
   }
   .navbar-actions .menu-icon {
-    display: block;
+    display: none;
   }
   .navbar-actions input {
     width: 160px;
@@ -390,12 +390,10 @@ const toggleMenu = () => {
     display: flex;
     justify-content: space-between;
   }
-  .navbar-actions .garage img {
-    height: 16px;
-  }
-  .navbar-actions .garage-button {
+  .navbar-actions .garage {
     display: none;
   }
+
   .navbar {
     border: none;
   }

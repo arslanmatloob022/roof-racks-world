@@ -235,14 +235,24 @@ li {
   }
   .search-bar {
     padding: 0 0 0 20px;
-    margin-left: 1%;
+    margin-left: 25%;
     width: 100%;
+    display: flex;
+    background-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .search-bar input {
-    background-color: transparent;
+    background-color: #fff;
     border: none;
+    padding: 8px 14px;
+    border-radius: 18px;
   }
-
+  .search-bar button {
+    margin-top: 12px;
+    padding: 16px 20px;
+  }
   .search-bar .i {
     border-radius: 34px;
     font-size: 12px;

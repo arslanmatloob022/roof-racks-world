@@ -1,10 +1,10 @@
 <template>
-    <div class="d-flex align-items-center p-5 flex-wrap" style="justify-content: space-around; background-color: rgb(246, 247, 248); gap: 20px;">
-        <div v-for="item in services" class="d-flex  align-items-center justify-content-center">
+    <div class="d-grid align-items-center pt-2  flex-wrap serice-Waraper" style="display: grid; grid-template-columns: repeat(4, 1fr); justify-content: space-around; background-color: rgb(246, 247, 248); gap: 20px;">
+        <div v-for="item in services" class="d-flex flex-wrap align-items-center justify-content-center" >
             <img class="service-image" :src="item.url" >
-            <div>
+            <div class="services-p">
                 <p class="mb-0"> <b>{{ item.title }}</b></p>
-                <p>{{ item.decription }}</p>
+                <p class="lat-service">{{ item.decription }}</p>
             </div>
         </div>
     </div>
@@ -40,9 +40,34 @@ const services = ref([
 </script>
 
 <style>
+.serice-Waraper{
+padding: 25px;
+padding-top: 40px !important;
+}
+
 .service-image{
     width: 70px;
     height: 70px;
     padding-right: 15px;
+}
+
+@media (max-width: 600px) {
+  .services-p > p {
+    font-size: 10px !important;
+  }
+  .lat-service{
+    font-size: 7px ;
+  }
+
+  .service-image{
+    width: 50px;
+    height: 50px;
+    padding-right: 9px;
+}
+
+.serice-Waraper{
+padding: 5px;
+padding-top: 5px !important;
+}
 }
 </style>
