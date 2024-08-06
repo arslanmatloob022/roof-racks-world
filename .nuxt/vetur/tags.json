@@ -29,6 +29,9 @@
   "Store": {
     "description": "Auto imported from components/Store.vue"
   },
+  "Stores": {
+    "description": "Auto imported from components/Stores.vue"
+  },
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
   },

@@ -8,9 +8,16 @@
           alt="Roof Rack and Towbar World"
         />
       </div>
-
-      <div class="navbar-links" :class="{ active: searchActive }">
-        <Searchbar class="hide-on-mobile" />
+      <div
+        v-if="!showContactNavBar"
+        class="navbar-mobile-logo hide-on-mobile"
+      ></div>
+      <div
+        style="background-color: transparent"
+        class="hide-on-mobile"
+        :class="{ active: searchActive }"
+      >
+        <Searchbar />
       </div>
 
       <div class="navbar-actions">
@@ -236,6 +243,9 @@ onBeforeUnmount(() => {
 .darkBg {
   background-color: #004f7b;
 }
+.light-bg {
+  background-color: transparent;
+}
 
 .navbar-logo img {
   height: 40px;
@@ -255,6 +265,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   z-index: 9999;
+  display: block;
 }
 
 .navbar-links input {
@@ -425,7 +436,7 @@ onBeforeUnmount(() => {
     display: none;
   }
 
-  .navbar .navbar-links {
+  .navbar-links {
     display: none;
   }
 

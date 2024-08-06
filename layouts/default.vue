@@ -17,7 +17,7 @@ const showContactNavBar = ref(false);
 const showHeader = ref(true);
 
 const handleScroll = () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollHeight;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   if (scrollTop > 0) {
     showContactNavBar.value = true; // Show ContactNavBar when scrolling down
   } else {
