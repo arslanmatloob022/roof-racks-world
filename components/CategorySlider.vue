@@ -1,6 +1,9 @@
 <template>
 
   <div>
+    <div class="get_in_thouch">
+      <a href="" style="color: white; font-size: 25px; transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1); text-decoration: none;"> Get in Touch</a>
+    </div>
 
   
   <div style="width: 100%" id="category-slider"  v-if="!isMobileMode">
@@ -133,11 +136,11 @@ const categories = ref([
     name: "Towbars",
     items: 434,
   },
-  {
-    url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/s-l1600.jpg",
-    name: "Bars",
-    items: 100,
-  },
+  // {
+  //   url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/02/s-l1600.jpg",
+  //   name: "Bars",
+  //   items: 100,
+  // },
   {
     url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/06/207572.webp",
     name: "Roof Mount",
@@ -211,7 +214,26 @@ const chunkedCategories = chunkArray(categories.value, 10);
 </script>
 
 <style>
+.get_in_thouch {
+    position: fixed;
+    top: calc(50vh - 50px);
+    right: -50px;
+    background: #004f7b;
+    color: #fff;
+    z-index: 999;
+    transform: rotate(90deg);
+    padding: 5px 10px;
+    width: 160px;
+    text-align: center;
+    line-height: 1;
+}
+a:hover{
+  text-decoration: none;
+}
+.get_in_thouch:hover {
+  background-color: red;
 
+}
 .view{
   color: #365072;
 }

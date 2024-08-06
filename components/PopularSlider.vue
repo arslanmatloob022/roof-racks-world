@@ -61,8 +61,9 @@
 </template>
 
 <script setup lang="ts">
+
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import "vue3-carousel/dist/carousel.css";
-import { ref } from "vue";
 
 const categories = ref([
   {
@@ -188,8 +189,32 @@ function chunkArray(array: any[], chunkSize: number) {
   }
   return chunks;
 }
+const chunkedCategories = ref(<any>[])
+chunkedCategories.value = chunkArray(categories.value, 8);
 
-const chunkedCategories = chunkArray(categories.value, 8);
+
+const isMobileMode = ref(false);
+
+const updateIsMobileMode = () => {
+  isMobileMode.value = window.innerWidth <= 600;
+  if(isMobileMode.value){
+
+    chunkedCategories.value = chunkArray(categories.value, 1);
+  }else{
+    chunkedCategories.value = chunkArray(categories.value, 8);
+
+  }
+
+};
+
+onMounted(() => {
+  updateIsMobileMode();
+  window.addEventListener('resize', updateIsMobileMode);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateIsMobileMode);
+});
 </script>
 
 <style>
@@ -234,6 +259,12 @@ const chunkedCategories = chunkArray(categories.value, 8);
 
 #popular-slider .carousel-control-prev-icon:hover {
   background-color: red !important;
+}
+@media (max-width: 600px) {
+  #popular-slider .carousel-control-prev, .carousel-control-next{
+    display: none !important;
+  }
+ 
 }
 
 #popular-slider .carousel-control-prev-icon::before {
