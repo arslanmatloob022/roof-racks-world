@@ -12,9 +12,9 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_03172835 from 'nuxt_plugin_plugin_03172835' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_bootstrapvue_f791c40c from 'nuxt_plugin_bootstrapvue_f791c40c' // Source: ./bootstrap-vue.js (mode: 'all')
-import nuxt_plugin_fontawesome_0e6789cd from 'nuxt_plugin_fontawesome_0e6789cd' // Source: ./fontawesome.js (mode: 'all')
+import nuxt_plugin_plugin_001d0454 from 'nuxt_plugin_plugin_001d0454' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_bootstrapvue_c8d43cce from 'nuxt_plugin_bootstrapvue_c8d43cce' // Source: ./bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_fontawesome_68deada8 from 'nuxt_plugin_fontawesome_68deada8' // Source: ./fontawesome.js (mode: 'all')
 import nuxt_plugin_fontawesome_b8db358e from 'nuxt_plugin_fontawesome_b8db358e' // Source: ../plugins/fontawesome.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -183,16 +183,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_03172835 === 'function') {
-    await nuxt_plugin_plugin_03172835(app.context, inject)
+  if (typeof nuxt_plugin_plugin_001d0454 === 'function') {
+    await nuxt_plugin_plugin_001d0454(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_bootstrapvue_f791c40c === 'function') {
-    await nuxt_plugin_bootstrapvue_f791c40c(app.context, inject)
+  if (typeof nuxt_plugin_bootstrapvue_c8d43cce === 'function') {
+    await nuxt_plugin_bootstrapvue_c8d43cce(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_fontawesome_0e6789cd === 'function') {
-    await nuxt_plugin_fontawesome_0e6789cd(app.context, inject)
+  if (typeof nuxt_plugin_fontawesome_68deada8 === 'function') {
+    await nuxt_plugin_fontawesome_68deada8(app.context, inject)
   }
 
   if (typeof nuxt_plugin_fontawesome_b8db358e === 'function') {

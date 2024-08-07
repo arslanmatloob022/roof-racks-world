@@ -8,7 +8,7 @@
       style="width: 100%; background-color: rgb(246, 247, 248)"
       id="brand-slider"
     >
-      <b-carousel :interval="500" controls indicators>
+      <b-carousel :interval="0" controls indicators>
         <b-carousel-slide
           v-for="(categoryChunk, index) in chunkedCategories"
           :key="index"
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div v-if="isMobileMode">
+  <div v-if="isMobileMode" style="background-color: rgb(246, 247, 248);" class="pb-5 mt-3">
     <div class="d-flex justify-content-between align-items-center p-4  ">
       <h2 class="cu-heading  pl-0">Shop By Brand</h2>
       <p class="view">view all</p>
@@ -45,12 +45,9 @@
       <div class="d-flex flex-column">
         <div class="pl-5 pr-5" style=" display: grid; grid-template-columns: repeat(3, 1fr); row-gap: 10px; column-gap: 30px;" >
           <div class="miniSlider  justify-content-between align-items-center "   v-for="(item, index) in categories" :key="index">
-            <!-- <div class="  d-flex  align-items-center " style="gap: 10px;"> -->
 
               <img :src="item.url" alt="" style="width: 100%;">
-              <!-- <p class="mb-0" style="font-weight: 700; color: black;">{{ item.name }} hlo word</p> -->
-            <!-- </div> -->
-            <!-- <i class="fa fa-angle-right"></i> -->
+              
           </div>
         </div>
       </div>

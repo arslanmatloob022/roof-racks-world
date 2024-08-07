@@ -1,7 +1,7 @@
 <template>
-    <div style="width: 100%" id="special-slider">
-        <h2 class="cu-heading p-5">Products On Special</h2>
-        <b-carousel :interval="500" controls indicators>
+    <div style="width: 100%" :id="isMobileMode?'popular-slider': 'special-slider'">
+        <h2 class="cu-heading p-3">Products On Special</h2>
+        <b-carousel :interval="2000" controls indicators v-if="!isMobileMode">
             <b-carousel-slide v-for="(item, index) in categories" :key="index" class="pointer hidden-image"
                 img-src="https://res.cloudinary.com/dpkreativ/image/upload/b_auto,c_mpad,h_480,w_1024/v1646483551/wallpapers/car.jpg">
 
@@ -24,36 +24,85 @@
 
             </b-carousel-slide>
         </b-carousel>
+
+        <b-carousel :interval="0" controls indicators v-else>
+      <b-carousel-slide v-for="(item, index) in categories" :key="index" class="pointer hidden-image"
+        img-src="https://res.cloudinary.com/dpkreativ/image/upload/b_auto,c_mpad,h_480,w_1024/v1646483551/wallpapers/car.jpg">
+        <div class="d-flex flex-wrap justify-content-center" style="gap: 30px">
+          <b-card-group deck >
+            <!--  -->
+            <b-card class="text-left" rounded>
+              <div style="position: relative;" class="hover-effect">
+                <img :src="item.url" style="width: 100%; height: 270px;" alt="">
+              
+              </div>
+              <b-card-text class="text-left black card-title pl-3 pr-3 pt-3">
+                <p class="custom-black">
+                  M-SKU: <b>{{ item.model }}</b>
+                </p>
+                <h5>
+                  <b>{{ item.title }}</b>
+                </h5>
+                <p class="custom-black">
+                  <span style="font-weight: 600;" class="custom-black discount-price"> ${{ item.price }}.00</span>
+                </p>
+              </b-card-text>
+            </b-card>
+          </b-card-group>
+        </div>
+      </b-carousel-slide>
+    </b-carousel>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import "vue3-carousel/dist/carousel.css";
-import { ref } from "vue";
+
+
 
 const categories = ref([
     {
         url: "https://cdn.flowrix.app/85a5f8ac/uploads/2022/08/511565.webp",
         title: "Thule ProRide Roof Bike Rack Black/Aluminium",
         price: 247,
+        model:'595002'
     },
     {
         url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclic2_Mai.webp",
         title: "Towbars",
         price: 434,
+        model:'595002'
     },
     {
         url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
         title: "Jakima justclick",
         price: 100,
+        model:'595002'
     },
     {
         url: "https://cdn.flowrix.app/85a5f8ac/uploads/2023/06/Justclick3_mai.webp",
         title: "Roof Mount",
         price: 19,
+        model:'595002'
     },
     
 ]);
+
+const isMobileMode = ref(false);
+
+const updateIsMobileMode = () => {
+  isMobileMode.value = window.innerWidth <= 600;
+};
+
+onMounted(() => {
+  updateIsMobileMode();
+  window.addEventListener('resize', updateIsMobileMode);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateIsMobileMode);
+});
 
 
 
@@ -61,6 +110,35 @@ const categories = ref([
 
 <style>
 
+
+
+@media (max-width: 600px) {
+ 
+ #popular-slider .card-deck>.card {
+ width: 100%;
+ background-color: rgb(240, 238, 238);
+
+}
+
+#popular-slider .card-deck {
+ width: 100%;
+ /* background-color: rgb(240, 238, 238); */
+
+}
+
+#popular-slider .carousel-caption {
+ position: absolute;
+ /* bottom: 5px; */
+ z-index: 10;
+ padding-top: 0px;
+ padding-bottom: 0px;
+ color: #fff;
+ text-align: center;
+ left: 6% !important;
+ right: 6% !important;
+ /* background-color: rebeccapurple; */
+}
+}
 .card{
     cursor: pointer;
 }
@@ -327,7 +405,7 @@ const categories = ref([
     font-size: 20px;
     display: flex;
     height: 100%;
-    align-price: center;
+    align-items: center;
     justify-content: center;
     font-weight: bold;
 }
@@ -336,7 +414,12 @@ const categories = ref([
     .slides {
         font-size: 80px;
     }
+
 }
+
+
+
+
 
 @media (min-width: 900px) {
     .slides {
