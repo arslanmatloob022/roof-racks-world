@@ -1,6 +1,7 @@
 <template>
   <div>
     <nav class="navbar" :class="showContactNavBar ? 'darkBg' : ''">
+      <!-- logo -->
       <div v-if="showContactNavBar" class="navbar-mobile-logo hide-on-mobile">
         <img
           class="w-100"
@@ -8,20 +9,18 @@
           alt="Roof Rack and Towbar World"
         />
       </div>
-      <div
-        v-if="!showContactNavBar"
-        class="navbar-mobile-logo hide-on-mobile"
-      ></div>
-      <div
-        style="background-color: transparent"
-        class="hide-on-mobile"
-        :class="{ active: searchActive }"
-      >
+
+      <!-- space div -->
+      <div v-if="!showContactNavBar" class="hide-mobile hide-on-mobile"></div>
+
+      <!-- searchbar -->
+      <div class="hide-on-mobile" :class="{ active: searchActive }">
         <Searchbar />
       </div>
 
       <div class="navbar-actions">
-        <div style="margin-right: 10%" class="show-on-mobile">
+        <!-- mobile logo -->
+        <div style="margin-right: 5%" class="show-on-mobile">
           <img
             class="w-100"
             height="36"
@@ -31,10 +30,12 @@
           />
         </div>
 
-        <button class="menu-icon profile-icon" @click="showSearch">
+        <!-- search icon -->
+        <button class="menu-icon" @click="showSearch">
           <fa class="i" :icon="['fas', 'magnifying-glass']" />
         </button>
 
+        <!-- call us -->
         <div class="profile-icon">
           <font-awesome-icon
             class="i hide-on-mobile"
@@ -48,6 +49,8 @@
             <h6>123 456 45</h6>
           </div>
         </div>
+
+        <!-- car icon -->
         <div
           style="font-size: 28px; margin-right: 4px; color: #d4d4d4"
           class="show-on-mobile"
@@ -55,6 +58,7 @@
           <font-awesome-icon class="i" :icon="['fas', 'car-rear']" />
         </div>
 
+        <!-- cart -->
         <div class="profile-icon">
           <font-awesome-icon class="i" :icon="['fab', 'opencart']" />
           <div
@@ -66,6 +70,7 @@
           </div>
         </div>
 
+        <!-- account icons -->
         <div class="profile-icon">
           <font-awesome-icon class="i" :icon="['far', 'user']" />
           <div
@@ -77,7 +82,8 @@
           </div>
         </div>
 
-        <button class="menu-icon profile-icon" @click="">
+        <!-- toggle menu icons -->
+        <button class="menu-icon" @click="">
           <fa @click="toggleMenu" class="i" :icon="['fas', 'bars']" />
         </button>
       </div>
@@ -418,6 +424,55 @@ onBeforeUnmount(() => {
 
 .hide-on-mobile {
   display: block;
+}
+
+/* Media Queries */
+@media (max-width: 1240px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .navbar .navbar-mobile-logo {
+    display: block;
+  }
+
+  .navbar-links {
+    display: block;
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .navbar-actions {
+    gap: 12px;
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .navbar-actions .profile-icon {
+    display: block;
+  }
+  .navbar-actions .profile-icon .i {
+    height: 26px;
+    width: 26px;
+    border-radius: 8px;
+    margin-right: 8px;
+  }
+  .navbar-logo img {
+    display: none;
+  }
+  .navbar-mobile-logo img {
+    display: block;
+  }
 }
 
 /* Media Queries */

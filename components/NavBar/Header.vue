@@ -301,6 +301,60 @@ const toggleMenu = () => {
   align-items: last baseline;
 }
 /* Media Queries */
+@media (max-width: 1240px) {
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .main-nav .menu {
+    width: 100%;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-logo img {
+    height: 20px;
+  }
+
+  .navbar-links a {
+    color: #333;
+  }
+
+  .dropdown {
+    left: -28%;
+    top: 100%;
+    transform: translateX(-48%);
+    transform: translateY(-1%);
+    width: 98dvw;
+  }
+
+  .navbar-actions {
+    gap: 10px;
+  }
+
+  .navbar-actions .garage {
+    display: block;
+  }
+
+  .navbar-actions .profile-icon {
+    font-size: 8px;
+  }
+
+  .navbar-actions .menu-icon {
+    display: none;
+  }
+
+  .navbar-actions .menu-icon i {
+    z-index: 9;
+  }
+}
+/* Media Queries */
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
