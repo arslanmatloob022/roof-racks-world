@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; margin: 20px auto">
+  <div style="width: 100%; margin: 0 auto">
     <b-carousel
       :interval="0"
       controls

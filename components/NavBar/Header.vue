@@ -12,25 +12,6 @@
     <div class="menu">
       <ContactNavBar />
       <nav class="navbar">
-        <!-- <div class="navbar-logo">
-          <img
-            class="w-100"
-            height="85"
-            width="218"
-            src="https://cdn.flowrix.app/85a5f8ac/uploads/2024/07/logo.webp"
-            alt="Roof Rack and Towbar World"
-          />
-        </div> -->
-        <!-- <div class="navbar-mobile-logo">
-          <img
-            class="w-100"
-            height="85"
-            width="218"
-            src="@/images/mobile-logo.png"
-            alt="Roof Rack and Towbar World"
-          />
-        </div> -->
-
         <div class="navbar-links" :class="{ active: menuActive }">
           <ul>
             <li
@@ -81,14 +62,14 @@
           </ul>
         </div>
         <div class="navbar-actions">
-          <div class="garage is-flex">
+          <div class="garage d-flex">
             <img
               style="height: 32px"
               src="@/images/car-100.png"
               alt=""
               srcset=""
             />
-            <div class="garage-button flex-column">
+            <div class="garage-button">
               <button class="profile-icon">My Garage</button>
               <button class="profile-icon">Select Your Car</button>
             </div>
@@ -171,7 +152,6 @@ const toggleMenu = () => {
 }
 
 .navbar-links {
-  flex: 1;
   display: flex;
   align-items: center;
   z-index: 9999;
@@ -185,12 +165,12 @@ const toggleMenu = () => {
 }
 
 .navbar-links li {
-  margin: 0 1rem;
+  margin: 0 0.02rem;
   cursor: pointer;
 }
 
 .navbar-links a {
-  color: #ff4426;
+  color: #333;
   text-decoration: none;
   padding: 0.5rem 1rem;
   display: block;
@@ -248,6 +228,8 @@ const toggleMenu = () => {
 }
 .navbar-actions .garage-button {
   display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar-actions input {
@@ -360,10 +342,7 @@ const toggleMenu = () => {
   .navbar-links.active {
     display: flex;
   }
-  .navbar-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
+
   .navbar-actions .menu-icon {
     display: none;
   }
@@ -386,9 +365,11 @@ const toggleMenu = () => {
   .navbar-mobile-logo img {
     display: block;
   }
+
   .navbar-actions {
-    display: flex;
+    width: 100%;
     justify-content: space-between;
+    display: none;
   }
   .navbar-actions .garage {
     display: none;
@@ -396,9 +377,11 @@ const toggleMenu = () => {
 
   .navbar {
     border: none;
+    background-color: transparent;
   }
   .main-nav .menu {
     width: 100%;
+    background-color: transparent;
   }
   .navbar-links a {
     color: #ffffff;

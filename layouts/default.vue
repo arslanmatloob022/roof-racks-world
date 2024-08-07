@@ -1,7 +1,17 @@
 <template>
   <div>
     <ContactNavBar class="ContactNavBar" v-if="showContactNavBar" />
-    <Header />
+    <Header
+      v-if="!showContactNavBar"
+      style="
+        background-color: #fff;
+        position: fixed;
+        z-index: 9999;
+        width: 86%;
+        margin: 1% 7%;
+        border-radius: 24px;
+      "
+    />
     <Nuxt />
     <Footer />
   </div>

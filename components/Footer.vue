@@ -48,24 +48,24 @@ const toggleSearch = () => {
                   />
                 </NuxtLink>
               </div>
-              <div class="footerphone hide-on-mobile">
-                <span>(02) 8999 8878</span>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-12"></div>
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="footer-useful-links">
-              <h3 class="footer-head hide-on-mobile">Customer Care</h3>
+              <div class="footerphone hide-on-mobile">
+                <span>Customer Care</span>
+                <span class="ml-4">(02) 8999 8878</span>
+              </div>
               <ul class="row p-0">
                 <div class="col-6">
-                  <li>Customer care</li>
+                  <li class="show-on-mobile">Customer care</li>
                   <li>About</li>
                   <li>Terms of Use</li>
                   <li>Privacy Policy</li>
                 </div>
                 <div class="col-6">
-                  <li>(02) 8999 8878</li>
+                  <li class="show-on-mobile">(02) 8999 8878</li>
                   <li>Returns & Exchanges</li>
                   <li>Contact Us</li>
                   <li>Shipping Policy</li>

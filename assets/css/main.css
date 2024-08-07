@@ -58,13 +58,15 @@ h1 {
 
 .contact-form {
   padding: 1rem 20rem;
+  width: fit-content;
   display: flex;
+  grid-template-columns: 3 1fr;
   flex-grow: 1;
 }
 
 .contact-form input {
   padding: 1rem 2rem;
-  width: 30.6%;
+  width: 30%;
   margin: 8px 16px;
   border: 3px solid #dbdbdd;
   border-radius: 12px;
@@ -72,7 +74,7 @@ h1 {
 
 .contact-form select {
   padding: 1rem 2rem;
-  width: 30.6%;
+  width: 30.3%;
   margin: 8px 16px;
   border: 3px solid #dbdbdd;
   background-color: #f0f0f0;

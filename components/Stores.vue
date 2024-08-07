@@ -114,13 +114,18 @@ export default {
 
 .map {
   width: 160px;
-  /* transform: translateX(-160px); */
   z-index: 0;
+}
+
+.map img {
+  height: 100%;
+  width: auto;
 }
 .card-body {
   background-color: #003d6b;
   color: white;
-  padding: 20px;
+  padding: 25px;
+  padding-right: 0;
   z-index: 1;
   position: relative;
 }
